@@ -3402,12 +3402,12 @@ td:last-child {
 .s-intro__content-pretitle {
     font-weight  : 600;
     margin-bottom: var(--vspace-0_125);
-    color        : var(--color-1);
+    color        : 7B68EE);
 }
         .s-intro__content-pretitle2 {
     font-weight  : 600;
     margin-bottom: var(--vspace-0_125);
-    color        : silver;
+    color        : FFA500;
 }
 
 .s-intro__content-title {
