@@ -3412,6 +3412,12 @@ td:last-child {
     margin-top    : 0;
     margin-bottom : var(--vspace-1_25);
 }
+s-intro__content-p {
+    font-size     : clamp(3.8rem, 4.8vw, 8.8rem);
+    letter-spacing: -0.025em;
+    margin-bottom : var(--vspace-1_25);
+    color        : var(--color-1);
+}
 
 .s-intro__content-btns {
     --color-btn           : var(--color-text-dark);
