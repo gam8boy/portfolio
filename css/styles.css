@@ -4489,6 +4489,7 @@ td:last-child {
         font-size: 1em;
         line-height: 1.5;
         margin-bottom: 20px;
+        text-align: left;
     }
 
 .visit-btn {
