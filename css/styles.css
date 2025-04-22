@@ -3404,6 +3404,11 @@ td:last-child {
     margin-bottom: var(--vspace-0_125);
     color        : var(--color-1);
 }
+        .s-intro__content-pretitle2 {
+    font-weight  : 600;
+    margin-bottom: var(--vspace-0_125);
+    color        : silver;
+}
 
 .s-intro__content-title {
     font-size     : clamp(3.8rem, 4.8vw, 8.8rem);
