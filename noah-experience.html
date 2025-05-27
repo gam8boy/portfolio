@@ -11,7 +11,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background */
             color: #333;
-            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            /* Removed scroll-behavior: smooth; as custom JS will handle it for specific links */
             min-height: 200vh; /* TEMPORARY: Ensures the page is tall enough to scroll for animation testing */
         }
         .container {
@@ -366,39 +366,73 @@
                 }
             }
 
-            // Scroll Animation Logic
+            // Custom Smooth Scroll Logic (1.2 seconds duration)
+            document.querySelectorAll('.sidebar-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default jump behavior
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        const startPosition = window.pageYOffset;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 70; // Adjust for fixed navbar
+                        const distance = targetPosition - startPosition;
+                        const duration = 1200; // 1.2 seconds in milliseconds
+                        let startTime = null;
+
+                        function animation(currentTime) {
+                            if (startTime === null) startTime = currentTime;
+                            const timeElapsed = currentTime - startTime;
+                            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                            window.scrollTo(0, run);
+                            if (timeElapsed < duration) requestAnimationFrame(animation);
+                            else {
+                                // Ensure exact target position is hit at the end
+                                window.scrollTo(0, targetPosition);
+                            }
+                        }
+
+                        // Easing function for smooth acceleration/deceleration
+                        function easeInOutQuad(t, b, c, d) {
+                            t /= d / 2;
+                            if (t < 1) return c / 2 * t * t + b;
+                            t--;
+                            return -c / 2 * (t * (t - 2) - 1) + b;
+                        }
+
+                        requestAnimationFrame(animation);
+                    }
+                });
+            });
+
+
+            // Scroll Animation Logic for the vertical line
             const scrollLine = document.getElementById('scrollLine');
             if (scrollLine) {
-                // Get the total length of the SVG path
                 const pathLength = scrollLine.getTotalLength();
-                console.log('SVG Path Length:', pathLength); // Debugging log
-                // Set the initial dash array and offset to hide the line
+                console.log('SVG Path Length:', pathLength);
                 scrollLine.style.strokeDasharray = pathLength;
                 scrollLine.style.strokeDashoffset = pathLength;
 
                 window.addEventListener('scroll', () => {
-                    // Calculate scroll percentage
                     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
                     let scrollPercent = 0;
-                    if (scrollHeight > 0) { // Avoid division by zero if content is short
+                    if (scrollHeight > 0) {
                         scrollPercent = scrollTop / scrollHeight;
                     }
-                    // Clamp scrollPercent between 0 and 1
                     scrollPercent = Math.max(0, Math.min(1, scrollPercent));
 
-                    console.log('Scroll Percent:', scrollPercent); // Debugging log
+                    console.log('Scroll Percent:', scrollPercent);
 
-                    // Calculate how much of the line to draw
                     const drawLength = pathLength * scrollPercent;
-                    // Adjust the dash offset to draw the line
                     scrollLine.style.strokeDashoffset = pathLength - drawLength;
                 });
 
-                // Trigger scroll event once on load to set initial state
                 window.dispatchEvent(new Event('scroll'));
             } else {
-                console.error("SVG element with ID 'scrollLine' not found."); // Debugging log
+                console.error("SVG element with ID 'scrollLine' not found.");
             }
         });
     </script>
