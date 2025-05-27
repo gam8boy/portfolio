@@ -11,6 +11,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background */
             color: #333;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
         .container {
             max-width: 1200px;
@@ -57,12 +58,54 @@
             font-weight: 600;
             color: #3b82f6; /* Highlight active link */
         }
+
+        /* Sidebar Specific Styles */
+        .sidebar {
+            width: 250px; /* Fixed width for the sidebar */
+            position: sticky; /* Makes the sidebar stick as you scroll */
+            top: 70px; /* Adjust based on navbar height + desired spacing */
+            height: calc(100vh - 70px); /* Adjust height to fill viewport below navbar */
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #555;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .sidebar-link:hover {
+            background-color: #e0e7ff; /* Light blue on hover */
+            color: #3b82f6;
+        }
+        .sidebar-link.active-sidebar-link {
+            background-color: #3b82f6; /* Active background */
+            color: white; /* Active text color */
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                flex-direction: column; /* Stack sidebar and main content on smaller screens */
+            }
+            .sidebar {
+                width: 100%;
+                position: static; /* Remove sticky behavior on smaller screens */
+                height: auto; /* Adjust height automatically */
+                margin-bottom: 1.5rem; /* Add space below sidebar */
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="bg-white shadow-md py-4">
-        <div class="container flex justify-between items-center">
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50"> <div class="container flex justify-between items-center">
             <a href="https://gam8boy.github.io/portfolio/" class="text-2xl font-bold text-gray-800">Gabriel Macaranas</a>
             <div class="space-x-4">
                 <a href="https://gam8boy.github.io/portfolio/" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300">Home</a>
@@ -71,148 +114,163 @@
         </div>
     </nav>
 
-    <main class="container py-8">
-        <a href="https://gam8boy.github.io/portfolio/" class="back-button">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-            Back to Portfolio
-        </a>
+    <main class="container py-8 flex gap-8 main-layout"> <aside class="sidebar">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Table of Contents</h3>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#executive-summary" class="sidebar-link">Executive Summary</a></li>
+                    <li><a href="#introduction" class="sidebar-link">Introduction</a></li>
+                    <li><a href="#narration" class="sidebar-link">Narrative of My OJT Journey</a></li>
+                    <li><a href="#experiences" class="sidebar-link">Key Experiences and Learnings</a></li>
+                    <li><a href="#exhibits" class="sidebar-link">Exhibits & System Overviews</a></li>
+                    <li><a href="#weekly-reports" class="sidebar-link">Weekly Progress Reports</a></li>
+                    <li><a href="#conclusion" class="sidebar-link">Conclusion</a></li>
+                    <li><a href="#certificate-dtr" class="sidebar-link">Certificate & DTR</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">My On-the-Job Training Experience at NOAH Business Applications</h1>
+        <div class="flex-grow"> <a href="https://gam8boy.github.io/portfolio/" class="back-button">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Portfolio
+            </a>
 
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Executive Summary</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                This portfolio showcases my journey, reflections, and accomplishments during my on-the-job training (OJT) at NOAH Business Applications, while I pursued my bachelor's degree in computer technology. My OJT took place at NOAH Business Applications, a company celebrated for its cutting-edge Enterprise Resource Planning (ERP) solutions and its team of dedicated certified public accountants and information technology professionals. I was fortunate to be placed in the Financial V8 Department. I engaged in various BRTS (Business Requirements and Technical Specifications) projects and responsibilities, gaining invaluable hands-on experience and personal growth.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                Throughout my training, I had the chance to engage with seasoned experts and fellow trainees, which greatly expanded my technical and professional abilities. My responsibilities included BRTS preparation and testing for several courses. This portfolio thoroughly explains the activities and projects I completed throughout my OJT. These include developing and testing BRTS and BRSS modules, establishing and managing project repositories, and completing different system setups.
-            </p>
-        </section>
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">My On-the-Job Training Experience at NOAH Business Applications</h1>
 
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Introduction to OJT and NOAH Business Applications</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                On-the-job training (OJT) is an important component of a college curriculum that gives students real, hands-on experience in their possible occupations. This type of training bridges the gap between theoretical information gained in the classroom and its practical application in work situations. OJT exposes students to a variety of work environments, allowing them to use their academic knowledge, learn applicable skills, and obtain practical insights that will be useful in their future professions.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                NOAH Business Applications offers on-the-job training programs by providing training opportunities and accommodating students from a variety of educational institutions. NOAH Business Applications expands the scope of Enterprise Resource Planning (ERP) by providing solutions that improve user productivity and performance management. The organization is supported by a competent staff of certified public accountants and information technology specialists who serve almost 80 companies and customers.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                Since its beginning, NOAH Business Applications has been devoted to addressing organizations' pain points, notably in compliance and performance management features. The organization has developed solutions to manage complicated technical needs, guaranteeing great efficiency and productivity in the workforce.
-            </p>
-        </section>
+            <section id="executive-summary" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Executive Summary</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    This portfolio showcases my journey, reflections, and accomplishments during my on-the-job training (OJT) at NOAH Business Applications, while I pursued my bachelor's degree in computer technology. My OJT took place at NOAH Business Applications, a company celebrated for its cutting-edge Enterprise Resource Planning (ERP) solutions and its team of dedicated certified public accountants and information technology professionals. I was fortunate to be placed in the Financial V8 Department. I engaged in various BRTS (Business Requirements and Technical Specifications) projects and responsibilities, gaining invaluable hands-on experience and personal growth.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Throughout my training, I had the chance to engage with seasoned experts and fellow trainees, which greatly expanded my technical and professional abilities. My responsibilities included BRTS preparation and testing for several courses. This portfolio thoroughly explains the activities and projects I completed throughout my OJT. These include developing and testing BRTS and BRSS modules, establishing and managing project repositories, and completing different system setups.
+                </p>
+            </section>
 
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Narrative of My OJT Journey</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                During my on-the-job training (OJT) at NOAH Business Applications, I had the opportunity to immerse myself in various aspects of the company's operations, focusing primarily on the development and testing of the Business Requirements and Technical Specifications (BRTS) modules. My training included both theoretical lessons and hands-on activities that allowed me to apply what I learned in real-world scenarios.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                At the beginning of each day, we started with a morning prayer, fostering a sense of unity and shared purpose among the team. My daily tasks were centered in the Financial Department, where I was responsible for preparing and testing various BRTS and BRSS modules. These modules are critical for ensuring the efficiency and accuracy of NOAH's Enterprise Resource Planning (ERP) systems. Every department has a designated trainer who is responsible for checking and monitoring our projects. The training also required close communication with my teammates and our department superior.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                Throughout my training, I experienced many challenges and concerns, notably those linked to the range and complexity of BRTS preparations and tests. Despite these hurdles, with the help of my trainer and teammates, I was able to adapt and learn fast. This experience not only improved my technical abilities but also taught me important lessons about cooperation, problem-solving, and project management.
-            </p>
-        </section>
+            <section id="introduction" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Introduction to OJT and NOAH Business Applications</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    On-the-job training (OJT) is an important component of a college curriculum that gives students real, hands-on experience in their possible occupations. This type of training bridges the gap between theoretical information gained in the classroom and its practical application in work situations. OJT exposes students to a variety of work environments, allowing them to use their academic knowledge, learn applicable skills, and obtain practical insights that will be useful in their future professions.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    NOAH Business Applications offers on-the-job training programs by providing training opportunities and accommodating students from a variety of educational institutions. NOAH Business Applications expands the scope of Enterprise Resource Planning (ERP) by providing solutions that improve user productivity and performance management. The organization is supported by a competent staff of certified public accountants and information technology specialists who serve almost 80 companies and customers.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Since its beginning, NOAH Business Applications has been devoted to addressing organizations' pain points, notably in compliance and performance management features. The organization has developed solutions to manage complicated technical needs, guaranteeing great efficiency and productivity in the workforce.
+                </p>
+            </section>
 
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Key Experiences and Learnings</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                While pursuing my bachelor's degree in information technology, I had the incredible opportunity to intern at NOAH Business Applications. Being part of the development team marked the beginning of a journey rich with essential experiences and profound learning moments. Throughout my training, I engaged in hands-on encoding tasks and appreciated the value of working in a collaborative team environment. This experience not only enhanced my technical abilities but also improved my teamwork skills. I was grateful to work with NOAH's seasoned trainers and mentors, whose guidance, motivation, and unwavering support made my journey truly transformative.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                I am delighted for the chance to intern at NOAH Business Applications, which provided me with real-world experience and taught me new skills and knowledge. Each assignment, project, and activity brought fresh obstacles that encouraged me to complete more tasks, practice coding, and broaden my grasp of software development principles. On the other hand, overcoming all challenges and problems, completing the assigned task within the deadlines, achieving the learning objectives, and having positive feedback gives me satisfaction and keeps me motivated to work more. This OJT experience gives me valuable opportunities to gain real-world experience, develop different skills, and prepare for my future career.
-            </p>
-        </section>
+            <section id="narration" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Narrative of My OJT Journey</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    During my on-the-job training (OJT) at NOAH Business Applications, I had the opportunity to immerse myself in various aspects of the company's operations, focusing primarily on the development and testing of the Business Requirements and Technical Specifications (BRTS) modules. My training included both theoretical lessons and hands-on activities that allowed me to apply what I learned in real-world scenarios.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    At the beginning of each day, we started with a morning prayer, fostering a sense of unity and shared purpose among the team. My daily tasks were centered in the Financial Department, where I was responsible for preparing and testing various BRTS and BRSS modules. These modules are critical for ensuring the efficiency and accuracy of NOAH's Enterprise Resource Planning (ERP) systems. Every department has a designated trainer who is responsible for checking and monitoring our projects. The training also required close communication with my teammates and our department superior.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Throughout my training, I experienced many challenges and concerns, notably those linked to the range and complexity of BRTS preparations and tests. Despite these hurdles, with the help of my trainer and teammates, I was able to adapt and learn fast. This experience not only improved my technical abilities but also taught me important lessons about cooperation, problem-solving, and project management.
+                </p>
+            </section>
 
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Exhibits & System Overviews</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=First+Day+Orientation" alt="First Day Orientation" class="content-image">
-                    <p class="text-center text-gray-600 text-sm mt-2">Our first day at NOAH Business Application, where we were introduced to the company and its policies.</p>
+            <section id="experiences" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Key Experiences and Learnings</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    While pursuing my bachelor's degree in information technology, I had the incredible opportunity to intern at NOAH Business Applications. Being part of the development team marked the beginning of a journey rich with essential experiences and profound learning moments. Throughout my training, I engaged in hands-on encoding tasks and appreciated the value of working in a collaborative team environment. This experience not only enhanced my technical abilities but also improved my teamwork skills. I was grateful to work with NOAH's seasoned trainers and mentors, whose guidance, motivation, and unwavering support made my journey truly transformative.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    I am delighted for the chance to intern at NOAH Business Applications, which provided me with real-world experience and taught me new skills and knowledge. Each assignment, project, and activity brought fresh obstacles that encouraged me to complete more tasks, practice coding, and broaden my grasp of software development principles. On the other hand, overcoming all challenges and problems, completing the assigned task within the deadlines, achieving the learning objectives, and having positive feedback gives me satisfaction and keeps me motivated to work more. This OJT experience gives me valuable opportunities to gain real-world experience, develop different skills, and prepare for my future career.
+                </p>
+            </section>
+
+            <section id="exhibits" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Exhibits & System Overviews</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=First+Day+Orientation" alt="First Day Orientation" class="content-image">
+                        <p class="text-center text-gray-600 text-sm mt-2">Our first day at NOAH Business Application, where we were introduced to the company and its policies.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=System+Navigation" alt="System Navigation" class="content-image">
+                        <p class="text-center text-gray-600 text-sm mt-2">Overview of the basic navigation of the system, oriented by our mentor Ms. Twinkle Maggay.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=Full+System+BRTS" alt="Full System BRTS" class="content-image">
+                        <p class="text-center text-gray-600 text-sm mt-2">The full system we developed as part of the BRTS preparation process.</p>
+                    </div>
+                    </div>
+            </section>
+
+            <section id="weekly-reports" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Weekly Progress Reports</h2>
+                <ul class="list-disc list-inside text-gray-700 space-y-3">
+                    <li>
+                        <strong>Week 1:</strong> Company orientation, learning about NOAH's story, unique attributes, and company profile. Created an accomplishment tracker and reviewed NOAH General Development Standards.
+                    </li>
+                    <li>
+                        <strong>Week 2:</strong> Completed BRTS Testing, documented findings for employee designations. Participated in daily morning prayers and continued BRTS preparation for Seller Group Level.
+                    </li>
+                    <li>
+                        <strong>Week 3:</strong> Focused on BRTS preparations, including Basis for Advance Commission and Commission Release Requirements. Also prepared Commission Computation Entry BRTS.
+                    </li>
+                    <li>
+                        <strong>Week 4:</strong> Completed BRTS Prep for Advance Commission Entry, Transaction Log Report, Commission Computation Entry, Commission Release Requirements, and Basis for Advance Commission. Worked on Account Uploading, Collection Summary, and started Contracted Sales Entry.
+                    </li>
+                    <li>
+                        <strong>Week 5:</strong> Focused on BRTS Prep for Document Listing Report, Final Cancellation, Chapel-Provisional Receipt, AR LOI Cancellation, Acknowledgement Receipt Non-Trade Entry, Cash Collection, and Other Charges Collection.
+                    </li>
+                    <li>
+                        <strong>Week 6:</strong> Completed BRTS prep for OR Printing. Conducted BRTS testing for Chapel-Provisional Receipt Printing, Seller Information, Status of COO Report List, Commission Payment Release, Sales Book, and List of Cancelled Accounts.
+                    </li>
+                    <li>
+                        <strong>Week 7:</strong> Completed BRTS testing for Client Contact Information and Acknowledgment Receipt Cancellation. Finished BRTS preparation for Document Listing Report and Commission Matrix Configuration.
+                    </li>
+                    <li>
+                        <strong>Week 8:</strong> Completed BRTS preparation for Main Stages, Commission Expense Control Account, and Incentive Control Account. Performed comparison tasks for V8 to V9: REBC, General Ledger, ADB, and AR.
+                    </li>
+                    <li>
+                        <strong>Week 9:</strong> Prepared various BRTS modules including Incentive Control Account, Seller Role, Seller Role Level, and Document Source.
+                    </li>
+                    <li>
+                        <strong>Week 10:</strong> Prepared and partially tested BRTS and BRSS modules. Completed BRTS Prep for Payee Sub Type Assignment MS and Seller Hierarchy Configuration. Started BRSS Testing for Encoding of Reservation Entry.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="conclusion" class="card">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Conclusion</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Reflecting on my experience with on-the-job training at NOAH Business Applications, I realize how transformational it has been for both my technical abilities and personal development. Working on real-world projects helped me use my academic knowledge in relevant ways while also uncovering new levels of creativity and problem-solving inside myself.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The experience has inspired me to try things beyond the familiar, embracing challenges with curiosity and amazement. The collaborative environment at NOAH promoted a feeling of belonging and purpose, and collaboration was necessary and inspiring. Experienced professionals provided important direction and encouragement, allowing me to navigate and overcome difficulties.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    The challenges I faced, such as adapting to a dynamic workplace and tackling intricate projects, were met with resilience and a willingness to learn. These experiences taught me the importance of patience, empathy, and the power of a positive outlook. I learned that asking for help and leaning on others' strengths is not a sign of weakness, but a path to deeper connections and growth. As I move forward, I carry with me the lessons and experiences I gained from my internship, certain that they will prepare me for the challenges and possibilities that await. This journey has been a wonderful example of the power of constant learning, teamwork, and keeping true to one's principles.
+                </p>
+            </section>
+
+            <section id="certificate-dtr" class="card text-center">
+                <h2 class="text-3xl font-semibold text-gray-800 section-heading">Certificate & Daily Time Record</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    You can view my Certificate of Completion and Daily Time Record below:
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <a href="https://placehold.co/600x800/E0E7FF/3B82F6?text=Certificate+Thumbnail" target="_blank" class="block">
+                        <img src="https://placehold.co/200x280/E0E7FF/3B82F6?text=Certificate" alt="Certificate of Completion Thumbnail" class="content-image hover:scale-105 transition-transform duration-300">
+                        <span class="text-blue-600 hover:underline mt-2 inline-block">View Certificate</span>
+                    </a>
+                    <a href="https://placehold.co/600x800/E0E7FF/3B82F6?text=DTR+Thumbnail" target="_blank" class="block">
+                        <img src="https://placehold.co/200x280/E0E7FF/3B82F6?text=DTR" alt="Daily Time Record Thumbnail" class="content-image hover:scale-105 transition-transform duration-300">
+                        <span class="text-blue-600 hover:underline mt-2 inline-block">View DTR</span>
+                    </a>
                 </div>
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=System+Navigation" alt="System Navigation" class="content-image">
-                    <p class="text-center text-gray-600 text-sm mt-2">Overview of the basic navigation of the system, oriented by our mentor Ms. Twinkle Maggay.</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=Full+System+BRTS" alt="Full System BRTS" class="content-image">
-                    <p class="text-center text-gray-600 text-sm mt-2">The full system we developed as part of the BRTS preparation process.</p>
-                </div>
-                </div>
-        </section>
-
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Weekly Progress Reports</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-3">
-                <li>
-                    <strong>Week 1:</strong> Company orientation, learning about NOAH's story, unique attributes, and company profile. Created an accomplishment tracker and reviewed NOAH General Development Standards.
-                </li>
-                <li>
-                    <strong>Week 2:</strong> Completed BRTS Testing, documented findings for employee designations. Participated in daily morning prayers and continued BRTS preparation for Seller Group Level.
-                </li>
-                <li>
-                    <strong>Week 3:</strong> Focused on BRTS preparations, including Basis for Advance Commission and Commission Release Requirements. Also prepared Commission Computation Entry BRTS.
-                </li>
-                <li>
-                    <strong>Week 4:</strong> Completed BRTS Prep for Advance Commission Entry, Transaction Log Report, Commission Computation Entry, Commission Release Requirements, and Basis for Advance Commission. Worked on Account Uploading, Collection Summary, and started Contracted Sales Entry.
-                </li>
-                <li>
-                    <strong>Week 5:</strong> Focused on BRTS Prep for Document Listing Report, Final Cancellation, Chapel-Provisional Receipt, AR LOI Cancellation, Acknowledgement Receipt Non-Trade Entry, Cash Collection, and Other Charges Collection.
-                </li>
-                <li>
-                    <strong>Week 6:</strong> Completed BRTS prep for OR Printing. Conducted BRTS testing for Chapel-Provisional Receipt Printing, Seller Information, Status of COO Report List, Commission Payment Release, Sales Book, and List of Cancelled Accounts.
-                </li>
-                <li>
-                    <strong>Week 7:</strong> Completed BRTS testing for Client Contact Information and Acknowledgment Receipt Cancellation. Finished BRTS preparation for Document Listing Report and Commission Matrix Configuration.
-                </li>
-                <li>
-                    <strong>Week 8:</strong> Completed BRTS preparation for Main Stages, Commission Expense Control Account, and Incentive Control Account. Performed comparison tasks for V8 to V9: REBC, General Ledger, ADB, and AR.
-                </li>
-                <li>
-                    <strong>Week 9:</strong> Prepared various BRTS modules including Incentive Control Account, Seller Role, Seller Role Level, and Document Source.
-                </li>
-                <li>
-                    <strong>Week 10:</strong> Prepared and partially tested BRTS and BRSS modules. Completed BRTS Prep for Payee Sub Type Assignment MS and Seller Hierarchy Configuration. Started BRSS Testing for Encoding of Reservation Entry.
-                </li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Conclusion</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Reflecting on my experience with on-the-job training at NOAH Business Applications, I realize how transformational it has been for both my technical abilities and personal development. Working on real-world projects helped me use my academic knowledge in relevant ways while also uncovering new levels of creativity and problem-solving inside myself.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                The experience has inspired me to try things beyond the familiar, embracing challenges with curiosity and amazement. The collaborative environment at NOAH promoted a feeling of belonging and purpose, and collaboration was necessary and inspiring. Experienced professionals provided important direction and encouragement, allowing me to navigate and overcome difficulties.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-                The challenges I faced, such as adapting to a dynamic workplace and tackling intricate projects, were met with resilience and a willingness to learn. These experiences taught me the importance of patience, empathy, and the power of a positive outlook. I learned that asking for help and leaning on others' strengths is not a sign of weakness, but a path to deeper connections and growth. As I move forward, I carry with me the lessons and experiences I gained from my internship, certain that they will prepare me for the challenges and possibilities that await. This journey has been a wonderful example of the power of constant learning, teamwork, and keeping true to one's principles.
-            </p>
-        </section>
-
-        <section class="card text-center">
-            <h2 class="text-3xl font-semibold text-gray-800 section-heading">Certificate & Daily Time Record</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                You can view my Certificate of Completion and Daily Time Record below:
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                <a href="https://placehold.co/600x800/E0E7FF/3B82F6?text=Certificate+Thumbnail" target="_blank" class="block">
-                    <img src="https://placehold.co/200x280/E0E7FF/3B82F6?text=Certificate" alt="Certificate of Completion Thumbnail" class="content-image hover:scale-105 transition-transform duration-300">
-                    <span class="text-blue-600 hover:underline mt-2 inline-block">View Certificate</span>
-                </a>
-                <a href="https://placehold.co/600x800/E0E7FF/3B82F6?text=DTR+Thumbnail" target="_blank" class="block">
-                    <img src="https://placehold.co/200x280/E0E7FF/3B82F6?text=DTR" alt="Daily Time Record Thumbnail" class="content-image hover:scale-105 transition-transform duration-300">
-                    <span class="text-blue-600 hover:underline mt-2 inline-block">View DTR</span>
-                </a>
-            </div>
-            <p class="text-gray-700 leading-relaxed mt-4">
-                For the full narrative report, you can download the PDF:
-                <a href="https://gam8boy.github.io/portfolio/Macaranas_OJT_Portfolio.pdf" target="_blank" class="text-blue-600 hover:underline font-medium">Download Full Narrative Report (PDF)</a>
-            </p>
-        </section>
-
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    For the full narrative report, you can download the PDF:
+                    <a href="https://gam8boy.github.io/portfolio/Macaranas_OJT_Portfolio.pdf" target="_blank" class="text-blue-600 hover:underline font-medium">Download Full Narrative Report (PDF)</a>
+                </p>
+            </section>
+        </div>
     </main>
 
     <footer class="bg-gray-800 text-white text-center py-6 mt-8">
@@ -220,6 +278,47 @@
             <p>&copy; 2024 Gabriel G. Macaranas. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript to highlight active sidebar link based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100; // Offset for navbar height
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active-sidebar-link');
+                if (link.href.includes(current)) {
+                    link.classList.add('active-sidebar-link');
+                }
+            });
+        });
+
+        // Initialize active link on page load if direct link to section
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                sidebarLinks.forEach(link => {
+                    if (link.href.includes(hash)) {
+                        link.classList.add('active-sidebar-link');
+                    }
+                });
+            } else {
+                // If no hash, activate the first link by default
+                if (sidebarLinks.length > 0) {
+                    sidebarLinks[0].classList.add('active-sidebar-link');
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
