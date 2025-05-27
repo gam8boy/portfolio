@@ -12,6 +12,7 @@
             background-color: #f0f2f5; /* Light gray background */
             color: #333;
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            min-height: 200vh; /* TEMPORARY: Ensures the page is tall enough to scroll for animation testing */
         }
         .container {
             max-width: 1200px;
@@ -347,6 +348,7 @@
             if (scrollLine) {
                 // Get the total length of the SVG path
                 const pathLength = scrollLine.getTotalLength();
+                console.log('SVG Path Length:', pathLength); // Debugging log
                 // Set the initial dash array and offset to hide the line
                 scrollLine.style.strokeDasharray = pathLength;
                 scrollLine.style.strokeDashoffset = pathLength;
@@ -355,7 +357,11 @@
                     // Calculate scroll percentage
                     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    const scrollPercent = scrollTop / scrollHeight;
+                    let scrollPercent = 0;
+                    if (scrollHeight > 0) { // Avoid division by zero if content is short
+                        scrollPercent = scrollTop / scrollHeight;
+                    }
+                    console.log('Scroll Percent:', scrollPercent); // Debugging log
 
                     // Calculate how much of the line to draw
                     const drawLength = pathLength * scrollPercent;
@@ -365,6 +371,8 @@
 
                 // Trigger scroll event once on load to set initial state
                 window.dispatchEvent(new Event('scroll'));
+            } else {
+                console.error("SVG element with ID 'scrollLine' not found."); // Debugging log
             }
         });
     </script>
