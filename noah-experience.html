@@ -90,6 +90,11 @@
             font-weight: 600;
         }
 
+        /* Styles for the scroll animation SVG */
+        #scrollLine {
+            transition: stroke-dashoffset 0.05s linear; /* Slightly smoother transition */
+        }
+
         @media (max-width: 1024px) {
             .main-layout {
                 flex-direction: column; /* Stack sidebar and main content on smaller screens */
@@ -99,6 +104,10 @@
                 position: static; /* Remove sticky behavior on smaller screens */
                 height: auto; /* Adjust height automatically */
                 margin-bottom: 1.5rem; /* Add space below sidebar */
+            }
+            /* Hide the scroll animation line on small screens if it obstructs content */
+            .scroll-animation-container {
+                display: none;
             }
         }
     </style>
@@ -114,6 +123,12 @@
                 </div>
         </div>
     </nav>
+
+    <div class="scroll-animation-container fixed top-0 left-0 h-full w-4 z-40 pointer-events-none overflow-hidden">
+        <svg class="h-full w-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
+            <path id="scrollLine" d="M 50 0 L 50 1000" stroke="#3b82f6" stroke-width="5" fill="none"/>
+        </svg>
+    </div>
 
     <main class="container py-8 flex gap-8 main-layout">
         <aside class="sidebar">
@@ -226,10 +241,10 @@
                         <strong>Week 4:</strong> Completed documentation preparations for several key system features and initiated work on new development documentation.
                     </li>
                     <li>
-                        <strong>Week 5:</strong> Continued extensive documentation preparation across multiple modules, focusing on comprehensive coverage and detail.
+                        <strong>Week 5:</strong> Focused on extensive documentation preparation across multiple modules, ensuring comprehensive coverage and detail.
                     </li>
                     <li>
-                        <strong>Week 6:</strong> Transitioned to system testing, verifying the functionality and compliance of various implemented features.
+                        <strong>Week 6:</strong> Transitioned to rigorous system testing, verifying the functionality and compliance of various implemented features.
                     </li>
                     <li>
                         <strong>Week 7:</strong> Performed further system testing and finalized documentation for additional system configurations.
@@ -325,6 +340,31 @@
                 if (sidebarLinks.length > 0) {
                     sidebarLinks[0].classList.add('active-sidebar-link');
                 }
+            }
+
+            // Scroll Animation Logic
+            const scrollLine = document.getElementById('scrollLine');
+            if (scrollLine) {
+                // Get the total length of the SVG path
+                const pathLength = scrollLine.getTotalLength();
+                // Set the initial dash array and offset to hide the line
+                scrollLine.style.strokeDasharray = pathLength;
+                scrollLine.style.strokeDashoffset = pathLength;
+
+                window.addEventListener('scroll', () => {
+                    // Calculate scroll percentage
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    const scrollPercent = scrollTop / scrollHeight;
+
+                    // Calculate how much of the line to draw
+                    const drawLength = pathLength * scrollPercent;
+                    // Adjust the dash offset to draw the line
+                    scrollLine.style.strokeDashoffset = pathLength - drawLength;
+                });
+
+                // Trigger scroll event once on load to set initial state
+                window.dispatchEvent(new Event('scroll'));
             }
         });
     </script>
