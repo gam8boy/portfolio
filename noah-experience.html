@@ -96,6 +96,29 @@
             transition: stroke-dashoffset 0.05s linear; /* Slightly smoother transition */
         }
 
+        /* Enhanced scroll animation container styles */
+        .scroll-animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 8px; /* Increased width for better visibility */
+            z-index: 40;
+            pointer-events: none;
+            overflow: hidden;
+            background-color: #e0e7ff; /* Light blue background to make the line stand out */
+        }
+        .scroll-animation-container svg {
+            height: 100%;
+            width: 100%;
+        }
+        .scroll-animation-container #scrollLine {
+            stroke: #3b82f6; /* Main blue color */
+            stroke-width: 8; /* Increased stroke width for better visibility */
+            fill: none;
+        }
+
+
         @media (max-width: 1024px) {
             .main-layout {
                 flex-direction: column; /* Stack sidebar and main content on smaller screens */
@@ -125,9 +148,9 @@
         </div>
     </nav>
 
-    <div class="scroll-animation-container fixed top-0 left-0 h-full w-4 z-40 pointer-events-none overflow-hidden">
+    <div class="scroll-animation-container">
         <svg class="h-full w-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
-            <path id="scrollLine" d="M 50 0 L 50 1000" stroke="#3b82f6" stroke-width="5" fill="none"/>
+            <path id="scrollLine" d="M 50 0 L 50 1000" />
         </svg>
     </div>
 
@@ -361,6 +384,9 @@
                     if (scrollHeight > 0) { // Avoid division by zero if content is short
                         scrollPercent = scrollTop / scrollHeight;
                     }
+                    // Clamp scrollPercent between 0 and 1
+                    scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+
                     console.log('Scroll Percent:', scrollPercent); // Debugging log
 
                     // Calculate how much of the line to draw
