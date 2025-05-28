@@ -433,3 +433,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ... (rest of your existing JavaScript code) ...
 });
+// Add this inside your document.addEventListener('DOMContentLoaded', () => { ... });
+
+    // --- Scroll Animation for elements ---
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    const animateObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const animateObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, animateObserverOptions);
+
+    animatedElements.forEach(element => {
+        animateObserver.observe(element);
+    });
+
+}); // End of DOMContentLoaded (make sure this closing bracket matches the opening one)
