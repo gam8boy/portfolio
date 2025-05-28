@@ -312,3 +312,124 @@
     })();
 
 })(document.documentElement);
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Project Modal Logic ---
+    const projectModal = document.getElementById('projectModal');
+    const closeButton = document.querySelector('.close-button');
+    const viewDetailsButtons = document.querySelectorAll('.view-details-btn');
+
+    const modalProjectTitle = document.getElementById('modalProjectTitle');
+    const modalProjectImage = document.getElementById('modalProjectImage');
+    const modalProjectDescription = document.getElementById('modalProjectDescription');
+    const modalProjectTech = document.getElementById('modalProjectTech');
+    const modalLiveDemoLink = document.getElementById('modalLiveDemoLink');
+    const modalGitHubLink = document.getElementById('modalGitHubLink');
+
+    // ** IMPORTANT: Define your project data here **
+    // This object holds the details for each project.
+    // The keys (e.g., 'attendanceSystem') must match the 'data-project-id' in your HTML.
+    const projectData = {
+        attendanceSystem: {
+            title: "Automated Event Attendance System",
+            image: "images/barcode.gif", // Use your actual image path
+            description: "Developed a robust attendance system using barcode technology to streamline event check-ins. Features include real-time data tracking, reporting, and user management. Built as a capstone project.",
+            tech: "Technologies: PHP, MySQL, JavaScript, HTML, CSS",
+            liveDemo: "https://www.loom.com/share/66aa2e5525324081b1a111a4940757d0", // Your "Watch Demo" link
+            githubRepo: "https://drive.google.com/file/d/10V-Aps-l1y-nIxe5YbtEdlPWilCimQ-6/view?usp=drive_link" // Your "Read more" link
+        },
+        // Add more projects here following the same structure:
+        // yourSecondProject: {
+        //     title: "Your Second Project Title",
+        //     image: "images/your-second-project.jpg",
+        //     description: "A detailed description of your second project...",
+        //     tech: "Technologies: Example Tech Stack",
+        //     liveDemo: "https://example.com/live-demo2",
+        //     githubRepo: "https://github.com/your-repo/project2"
+        // }
+    };
+
+    viewDetailsButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const projectId = button.closest('.project-card').dataset.projectId;
+            const project = projectData[projectId];
+
+            if (project) {
+                modalProjectTitle.textContent = project.title;
+                modalProjectImage.src = project.image;
+                modalProjectImage.alt = project.title;
+                modalProjectDescription.textContent = project.description;
+                modalProjectTech.textContent = project.tech;
+
+                // Show/hide live demo link
+                if (project.liveDemo) {
+                    modalLiveDemoLink.href = project.liveDemo;
+                    modalLiveDemoLink.style.display = 'inline-block';
+                } else {
+                    modalLiveDemoLink.style.display = 'none';
+                }
+
+                // Show/hide GitHub/Read More link
+                if (project.githubRepo) {
+                    modalGitHubLink.href = project.githubRepo;
+                    modalGitHubLink.style.display = 'inline-block';
+                } else {
+                    modalGitHubLink.style.display = 'none';
+                }
+
+                projectModal.style.display = 'flex'; // Show the modal
+            }
+        });
+    });
+
+    closeButton.addEventListener('click', () => {
+        projectModal.style.display = 'none';
+    });
+
+    // Close the modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === projectModal) {
+            projectModal.style.display = 'none';
+        }
+    });
+
+    // --- Smooth Scrolling for Navigation (already present, but ensure it's in main.js) ---
+    // If you have existing smooth scrolling, keep it. Otherwise, add this.
+    document.querySelectorAll('a.smoothscroll[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+}); // End of DOMContentLoaded
+// Add this inside your document.addEventListener('DOMContentLoaded', () => { ... });
+
+    // --- Skill Bar Animation ---
+    const skillBars = document.querySelectorAll('.skill-bar');
+
+    const observerOptions = {
+        root: null, // relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.5 // Trigger when 50% of the item is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                const level = skillBar.dataset.level;
+                skillBar.style.width = level + '%';
+                observer.unobserve(skillBar); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
+
+    skillBars.forEach(bar => {
+        observer.observe(bar);
+    });
+
+    // ... (rest of your existing JavaScript code) ...
+});
