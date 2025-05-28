@@ -3865,7 +3865,190 @@ td:last-child {
         display: none;
     }
 }
+/* --- Interactive Project Cards CSS --- */
 
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1200px; /* Optional: limit grid width */
+    margin: 0 auto; /* Center the grid */
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.project-card h3 {
+    margin: 15px 10px 5px;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.project-card .project-tags {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.project-card .view-details-btn {
+    background-color: #007bff; /* Use your portfolio's primary blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.project-card .view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* High z-index to appear on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    max-height: 90vh; /* Limit height for smaller screens */
+    overflow-y: auto;
+    text-align: center; /* Center modal content */
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    margin-top: 10px;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: left; /* Align description text left */
+}
+
+.modal-actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.modal-btn {
+    background-color: #28a745; /* Green for demo */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.modal-btn:hover {
+    background-color: #218838;
+}
+
+.modal-btn[href*="github.com"] { /* For GitHub/Read More button */
+    background-color: #6c757d;
+}
+.modal-btn[href*="github.com"]:hover {
+    background-color: #5a6268;
+}
+
+/* Media Queries for Mobile Responsiveness (Modal) */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+    .modal-btn {
+        display: block; /* Stack buttons on small screens */
+        margin: 10px auto;
+        width: calc(100% - 20px);
+    }
+}
 @media screen and (max-width: 400px) {
     .s-intro {
         --content-padding-top: max(10rem, 10vh);
@@ -3931,7 +4114,76 @@ td:last-child {
     line-height: 1.2;
     color      : var(--color-text-light) !important;
 }
+```css
+/* --- Animated Skill Bars CSS --- */
+.skills-container {
+    padding: 10px; /* Adjust padding as needed */
+}
 
+.skill-category {
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.skill-category h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #444;
+}
+
+.skill-item span {
+    flex: 0 0 120px; /* Fixed width for skill name */
+    font-weight: bold;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.skill-bar-container {
+    flex-grow: 1;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 12px; /* Slightly thinner bar */
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: #007bff; /* Matching your primary blue */
+    width: 0; /* Initial width for animation */
+    border-radius: 10px;
+    transition: width 1.5s ease-out; /* Animation effect */
+}
+
+/* Media Queries for Mobile Responsiveness (Skills) */
+@media (max-width: 600px) {
+    .skill-item {
+        flex-direction: column; /* Stack skill name and bar on small screens */
+        align-items: flex-start;
+    }
+    .skill-item span {
+        text-align: left;
+        width: auto;
+        padding-right: 0;
+        margin-bottom: 5px;
+    }
+    .skill-bar-container {
+        width: 100%;
+    }
+}
 /* ------------------------------------------------------------------- 
  * responsive:
  * about
