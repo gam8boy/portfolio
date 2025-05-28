@@ -238,30 +238,89 @@ Makati City 1200, Philippines
                         </div> <!--end s-about__block -->
 
                         <div class="grid-list-items__item s-about__block">
-                            <h4 class="s-about__block-title">Skills</h4>
+    <h4 class="s-about__block-title">Skills</h4>
 
-                            <ul class="s-about__list">
-                                <li>
-                                    Programming Languages: PHP, Java, C++, HTML, CSS
-                                </li>
-                                <li>
-                                    Database Management: MySQL
-                                </li>
-                                <li>
-                                    Prototyping
-                                </li>
-                                <li>
-                                    Tools & Technologies: Notepad++, Visual Studio Code,  UI/UX Design using Canva
-                                </li>
-                                <li>
-                                    Technical Writing: Research papers, technical reports, proposals, and journals
-                                </li>
-                                <li>
-                                    Visual Design
-                                </li>
-                            </ul>
-                        </div> <!--end s-about__block -->
+    <div class="skills-container"> <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-item">
+                <span>PHP</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="90"></div> </div>
+            </div>
+            <div class="skill-item">
+                <span>Java</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="75"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>C++</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="60"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>HTML & CSS</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="95"></div>
+                </div>
+            </div>
+        </div>
 
+        <div class="skill-category">
+            <h3>Database Management</h3>
+            <div class="skill-item">
+                <span>MySQL</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="85"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Tools & Technologies</h3>
+            <div class="skill-item">
+                <span>Notepad++</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="80"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>VS Code</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="90"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>Canva (UI/UX)</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="70"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Other Skills</h3>
+            <div class="skill-item">
+                <span>Prototyping</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="75"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>Technical Writing</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="85"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span>Visual Design</span>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" data-level="70"></div>
+                </div>
+            </div>
+        </div>
+    </div> </div> 
                     </div> <!-- grid-list-items -->
 
                 </div> <!--end column -->
@@ -290,17 +349,28 @@ Makati City 1200, Philippines
                 <section class="projects-section">
                     <div class="project-container">
                         <!-- Automated Event Attendance System -->  
-                        <div class="project-card">
+                        <div class="project-grid">
+                        <div class="project-card" data-project-id="attendanceSystem">
                             <img src="images/barcode.gif" alt="Automated Event Attendance">
-                            <div class="project-info">
-                                <p>🧠 Problem: </strong>Manual attendance tracking was inefficient and error-prone.</p>
-                                <p>🎯 Solution: </strong>This project automates event attendance using barcode scanning for real-time check-ins. Built with PHP, MySQL, JavaScript, HTML, and CSS, it streamlines the attendance process and generates reports instantly.</p>
-                                <p>🔍 Focus: </strong>User-friendly interface, real-time feedback</p>
+                            <h3>Automated Event Attendance System</h3>
+                    <p class="project-tags">PHP, MySQL, JavaScript, HTML, CSS</p>
+                        <button class="view-details-btn">View Details</button>
                             </div>
-                            <div class="project-links">
-                                <a href="https://www.loom.com/share/66aa2e5525324081b1a111a4940757d0" target="_blank" class="btn-github">Watch Demo</a>
-                                <a class="btn-read" target="_blank" href="https://drive.google.com/file/d/10V-Aps-l1y-nIxe5YbtEdlPWilCimQ-6/view?usp=drive_link">Read more</a>
+
                             </div>
+                    <div id="projectModal" class="modal">
+                        <div class="modal-content">
+                        <span class="close-button">&times;</span>
+                        <h2 id="modalProjectTitle"></h2>
+                        <img id="modalProjectImage" src="" alt="Project Image">
+                        <p id="modalProjectDescription"></p>
+                        <p id="modalProjectTech"></p>
+                        <div class="modal-actions">
+            <a id="modalLiveDemoLink" href="#" target="_blank" class="modal-btn" style="display: none;">Watch Demo</a>
+            <a id="modalGitHubLink" href="#" target="_blank" class="modal-btn" style="display: none;">Read More</a>
+                    </div>
+                    </div>
+                    </div>
                              <div class="project-tags">
                                 <span>#PHP</span>
                                 <span>#MySQL</span>
