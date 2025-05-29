@@ -4275,6 +4275,7 @@ td:last-child {
     padding-top     : var(--vspace-6);
     padding-bottom  : var(--bottom-padding);
     color           : var(--color-gray-15);
+    position: relative;
 }
 
 .s-footer h5 {
@@ -4392,15 +4393,15 @@ td:last-child {
  * ## go top
  * ------------------------------------------------------------------- */
 .ss-go-top {
-    --width-label   : 11rem;
-    z-index         : 2;
-    display         : flex;
-    align-items     : center;
-    position        : absolute;
-    bottom          : calc(var(--bottom-padding) - var(--vspace-0_5));
-    right           : calc(var(--gutter) + var(--vspace-0_75) - var(--width-label) - var(--vspace-1_75) - var(--vspace-0_75));
-    transform       : rotate(-90deg);
-    transform-origin: left bottom;
+    position: absolute; /* CHANGE THIS from 'fixed' to 'absolute' */
+    z-index: 999;
+    opacity: 0; /* Assuming JavaScript controls its visibility */
+    visibility: hidden;
+    cursor: pointer;
+    /* You can set default bottom/right values here, but media queries will adjust them */
+    bottom: 20px; /* A fallback */
+    right: 20px; /* A fallback */
+    /* ... other styles like background, color, border-radius, etc. ... */
 }
 
 .ss-go-top span {
@@ -4511,70 +4512,40 @@ td:last-child {
  * footer
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 1600px) {
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) - var(--vspace-0_25));
-        right : 0;
-    }
-
-    .ss-go-top span {
-        display: none;
-    }
-
-    .ss-go-top a {
-        margin: 0;
-        height: var(--vspace-1_5);
-        width : var(--vspace-1_5);
-    }
-
-    .ss-go-top svg {
-        height: calc(0.25 * var(--space));
-        width : calc(0.25 * var(--space));
-    }
+    .ss-go-top {
+        bottom: 20px; /* Simpler value, adjust as needed */
+        right : 20px; /* Simpler value, adjust as needed */
+    }
+    /* ... rest of your code for .ss-go-top span, a, svg ... */
 }
 
 @media screen and (max-width: 1200px) {
-    .ss-copyright {
-        margin-top: var(--vspace-0_5);
-    }
-
-    .ss-go-top {
-        bottom: calc(var(--bottom-padding) + var(--vspace-0_75));
-        right : calc(var(--gutter) - 1.2rem);
-    }
+    .ss-go-top {
+        bottom: 15px; /* Adjust for smaller screens */
+        right : 15px; /* Adjust for smaller screens */
+    }
 }
 
 @media screen and (max-width: 1000px) {
-    .s-footer__about>* {
-        width: 100%;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2);
-    }
+    .ss-go-top {
+        right: 10px; /* Closer to the edge */
+    }
 }
 
 @media screen and (max-width: 800px) {
-    .ss-copyright span {
-        display: block;
-    }
-
-    .ss-copyright span::after {
-        display: none;
-    }
-
-    .ss-go-top {
-        right: calc(var(--gutter) / 2 - var(--vspace-0_25));
-    }
+    .ss-go-top {
+        right: 5px;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    .ss-go-top {
-        right: calc(var(--vspace-0_25) * -1);
-    }
+    .ss-go-top {
+        right: 0px; /* Maybe flush with the edge */
+    }
 }
 
 @media screen and (max-width: 400px) {
-    .ss-go-top {
-        right: -2rem;
-    }
+    .ss-go-top {
+        right: 0px;
+    }
 }
