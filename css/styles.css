@@ -3999,19 +3999,27 @@ td:last-child {
 
 .close-button {
     color: #aaa;
-    float: right;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    position: absolute; /* Now absolute relative to #projectModal */
+    top: 20px; /* Adjust as needed, relative to the top of the viewport */
+    right: 20px; /* Adjust as needed, relative to the right of the viewport */
     cursor: pointer;
+    z-index: 10002; /* Give it an even higher z-index to be sure */
+    /* Add padding/background for easier tapping on mobile */
+    padding: 10px 15px; /* Added padding for touch target */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 5px; /* Slightly rounded corners */
+    line-height: 1; /* Helps vertical alignment of the 'X' */
+    color: #fff; /* Make it white so it's visible on dark overlay */
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: #000;
+    color: #fff; /* White on hover */
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque */
     text-decoration: none;
+    cursor: pointer;
 }
 
 .modal-content h2 {
