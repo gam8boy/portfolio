@@ -2549,7 +2549,22 @@ td:last-child {
     border-top-color: var(--color-text, var(--color-black));
     content         : "";
 }
-
+.skill-bars .skill-bar-item .skill-header {
+    font-size: 1.4rem; /* or 1.2rem, experiment to find what looks right */
+    /* ... other properties ... */
+}
+.skill-bars .skill-bar-item .skill-bar {
+    height: 1.2rem; /* or 1rem, adjust as desired */
+    /* ... other properties ... */
+}
+    .skill-bars .skill-bar-item {
+    margin-bottom: 1.5rem; /* Reduce spacing between skills */
+    /* ... other properties ... */
+}
+    .skill-bars .skill-bar-item .skill-header {
+    margin-bottom: 0.5rem; /* Reduce space above the bar */
+    /* ... other properties ... */
+}
 .skill-bars li .percent5 {
     width: 5%;
 }
@@ -3864,6 +3879,19 @@ td:last-child {
     .s-intro__scroll-down::before {
         display: none;
     }
+}
+    .ss-go-top {
+    bottom: 6rem; /* Adjust to sit above the scroll-down button */
+    right: 2rem;
+    /* ... existing styles ... */
+}
+
+.ss-go-down {
+    position: fixed;
+    bottom: 2rem; /* Keep it at the bottom */
+    right: 2rem;
+    z-index: 600;
+    /* ... similar styling to ss-go-top, potentially with different background/icon */
 }
 /* --- Interactive Project Cards CSS --- */
 
