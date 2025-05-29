@@ -2,6 +2,8 @@
 <html lang="en" class="no-js" >
 <head>
 
+    <!--- basic page needs
+    ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>gam8boy</title>
@@ -11,8 +13,13 @@
         document.documentElement.classList.add('js');
     </script>
 
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- favicons
+    ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon
           .png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
@@ -24,7 +31,9 @@
 
 <body id="top">
 
-
+    
+    <!-- preloader
+    ================================================== -->
     <div id="preloader">
         <div id="loader" class="dots-fade">
             <div></div>
@@ -34,9 +43,13 @@
     </div>
 
 
+    <!-- page wrap
+    ================================================== -->
     <div id="page" class="s-pagewrap">
 
 
+        <!-- # site header 
+        ================================================== -->
         <header class="s-header">
             <div class="row s-header__inner">
 
@@ -48,13 +61,24 @@
                     </div>
 
                     <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-                </div> <nav class="s-header__nav">    
+                </div> <!-- end s-header__block -->
+
+                <nav class="s-header__nav">    
                     <ul class="s-header__menu-links">
                         <li class="current"><a class="smoothscroll" href="#intro">Intro</a></li>
                         <li><a class="smoothscroll" href="#about">About</a></li>
                         <li><a class="smoothscroll" href="#works">Works</a></li>
                         <li><a class="smoothscroll" href="#footer">Contact</a></li>
-                    </ul> </nav> </div> </header> <section id="intro" class="s-intro target-section">
+                    </ul> <!-- s-header__menu-links -->    
+                </nav> <!-- end s-header__nav -->
+
+            </div> <!-- end s-header__inner -->
+        </header> <!-- end s-header -->
+
+
+        <!-- # intro
+        ================================================== -->
+        <section id="intro" class="s-intro target-section">
 
             <div class="row s-intro__content width-sixteen-col">
                 <div class="column lg-12 s-intro__content-inner grid-block grid-16">
@@ -65,13 +89,21 @@
                         <h1 class="s-intro__content-title" style="font-family: sans-serif;">
                             I'm Gabriel Macaranas <br>
                         </h1>
-                         <div class="s-intro__content-pretitle2 text-pretitle">Creating projects that just make sense.</div>
+                        <p></p> I specialize in web development, software engineering, and database management. I’m passionate about creating innovative digital solutions and building seamless user experiences.
+                        Let’s collaborate to bring your next project to life.</p>
                         <div class="s-intro__content-btns">
                             <a class="smoothscroll btn" href="#about">More About Me</a>
                             <a class="smoothscroll btn btn--stroke" href="#footer">Get In Touch</a>
-                        </div> </div> </div> </div> <ul class="s-intro__social social-list">
+                        </div> <!-- s-intro__content-btns -->
+
+                    </div> <!-- s-intro__content-text -->
+
+                </div> <!-- s-intro__content-inner -->
+            </div> <!-- s-intro__content -->
+
+            <ul class="s-intro__social social-list">
                 <li>
-                    <a href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/">
+                    <a href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                             <path d="M20.447 20.452h-3.754v-5.564c0-1.327-.025-3.036-1.852-3.036-1.853 0-2.136 1.445-2.136 2.938v5.662H8.951V9h3.6v1.561h.051c.502-.953 1.729-1.955 3.561-1.955 3.809 0 4.508 2.507 4.508 5.767v6.079zM5.337 7.433a2.176 2.176 0 0 1-2.168-2.184 2.176 2.176 0 0 1 2.168-2.184c1.2 0 2.168.982 2.168 2.184a2.177 2.177 0 0 1-2.168 2.184zM7.215 20.452H3.455V9h3.76v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.733v20.534C0 23.226.792 24 1.771 24h20.453C23.2 24 24 23.226 24 22.267V1.733C24 .774 23.2 0 22.225 0z" />
                         </svg>
@@ -79,100 +111,90 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/gam_8boy">
+                    <a href="https://wa.me/+639279469394" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
+                        </svg>
+                        <span class="u-screen-reader-text">WhatsApp</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/gam_8boy" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
-                                <span class="u-screen-reader-text">Instagram</span>
-                            </a>
-                        </li>
-                    </ul> <div class="s-intro__content-media">
+                        <span class="u-screen-reader-text">Instagram</span>
+                    </a>
+                </li>
+            </ul> <!-- end s-intro__social -->
+
+            <div class="s-intro__content-media">
                 <img src="images/intro-bg.jpg" srcset="images/intro-bg.jpg 1x, images/intro-bg.jpg 2x" alt="">
-            </div> <div class="s-intro__btn-download">
+            </div> <!-- s-intro__content-media -->
+
+            <div class="s-intro__btn-download">
                 <a class="btn btn--stroke"
-                   href="https://drive.google.com/file/d/1QfgjJ5acq860hYYS2z5LytKxC33gvSLF/view?usp=drive_link"
+                   href="https://drive.google.com/file/d/1XW7_bfcZWDjPgRskJNVTpt5ND1IDSytt/view?usp=drive_link"
                    target="_blank">
                     Get My CV
                 </a>
-            </div> <div class="s-intro__scroll-down">
+            </div> <!-- end s-intro__btn-download -->
+
+
+            <div class="s-intro__scroll-down">
                 <a href="#about" class="smoothscroll">
                     <div class="scroll-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"></path></svg>
                     </div>
                     <span class="scroll-text u-screen-reader-text">Scroll Down</span>
                 </a>
-            </div> </section> <section id="about" class="s-about target-section">
+            </div> <!-- s-intro__scroll-down -->
+
+        </section> <!-- end s-intro -->
+
+
+        <!-- # about
+        ================================================== -->
+        <section id="about" class="s-about target-section">
 
             <div class="row s-about__content">
                 <div class="column xl-12">    
-
+                    
                     <div class="section-header" data-num="01">
                         <h2 class="text-display-title">About Me.</h2>
-                    </div> <p class="attention-getter">
-        Hi, I’m <strong>Gabriel Macaranas</strong>, a fresh graduate with a Bachelor's degree in Information Technology. I specialize in web development and enjoy turning ideas into functional, user-friendly systems.
-        <br><br>
-        One of the highlights of my college journey was leading a capstone project that built an automated event attendance system using barcode technology. Aside from coding, I also handled project leadership, team communication, and even debugging deprecated code — all while keeping calm and focused despite challenges.
-        <br><br>
-        Outside tech, I play musical instruments like piano and accordion — which I think helps sharpen my ability to adapt and learn fast.
-        <br><br>
-       I’m open to roles in UI/UX, frontend, backend, or even tech support — anything where I can learn, contribute, and help make things work beautifully.</p>
+                    </div> <!-- end section-header -->
+
+                    <p class="attention-getter">
+                        Hi, I’m <strong>Gabriel Macaranas</strong>, graduated with a Bachelor's degree in Information Technology. I specialize in web development and enjoy turning ideas into functional, user-friendly systems.
+                        <br><br>
+                        One of the highlights of my college journey was leading a capstone project that built an automated event attendance system using barcode technology. Aside from coding, I also handled project leadership, team communication, and even debugging deprecated code — all while keeping calm and focused despite challenges.
+                        <br><br>
+                        Outside tech, I play musical instruments like piano and accordion — which I think helps sharpen my ability to adapt and learn fast.
+                        <br><br>
+                        I’m open to roles in UI/UX, frontend, backend, or even tech support — anything where I can learn, contribute, and help make things work beautifully.
+                         </p>
+
                     <div class="grid-list-items s-about__blocks">
 
                         <div class="grid-list-items__item s-about__block">
                             <h4 class="s-about__block-title">Experience</h4>
                             <ul class="s-about__list">
                                 <li>
-           <div style="position: relative; display: inline-block; cursor: pointer;" onmouseover="this.querySelector('.tooltip').style.display='block'" onmouseout="this.querySelector('.tooltip').style.display='none'">
                                     <a target="_blank" href="noah-experience.html">Internship at NOAH Business Application</a>
-            <div class="tooltip" style="
-    display: none;
-    position: absolute;
-    top: -30px;
-    left: 0;
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-  ">
-    Click to see more
-  </div>
-</div>                         </a>
                                     <span>
-                                       5th Floor West Wing, OPPEN Building,
-349 Sen. Gil Puyat Avenue,
-Makati City 1200, Philippines
+                                        349 Sen. Gil Puyat Avenue, Makati City 1200, Philippines<br>
                                         February 2024 - June 2024
                                     </span>
                                 </li>
                             </ul>
-                        </div> <div class="grid-list-items__item s-about__block">
+                        </div> <!--end s-about__block -->
+
+                        <div class="grid-list-items__item s-about__block">
                             <h4 class="s-about__block-title">Certificate/Awards</h4>
 
                             <ul class="s-about__list">
                                 <li>
-        <div style="position: relative; display: inline-block; cursor: pointer;" onmouseover="this.querySelector('.tooltip').style.display='block'" onmouseout="this.querySelector('.tooltip').style.display='none'">                            
-                                    <a target="_blank" href="https://drive.google.com/file/d/1xpg0nrU5ZaBTmeQbQ6fpkXAfS8ofNtWi/view?usp=drive_link">
-          <div class="tooltip" style="
-    display: none;
-    position: absolute;
-    top: -30px;
-    left: 0;
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-  ">
-    Click to read more
-  </div>
-</div>                               Outstanding Completion of the 486 hours Internship Program </a>
+                                    <a href="https://drive.google.com/file/d/1xpg0nrU5ZaBTmeQbQ6fpkXAfS8ofNtWi/view?usp=drive_link">
+                                        Outstanding Completion of the 486 hours Internship Program 
                                         <span>
-                                            Gil Puyat Ave., Makati, Makati, Philippines
+                                            349 Sen. Gil Puyat Avenue, Makati City 1200, Philippines<br>
                                             February 2024 - June 2024
                                         </span>
                                     </a>
@@ -187,97 +209,52 @@ Makati City 1200, Philippines
                                     </a>
                                 </li>
                             </ul>
-                        </div> <div class="grid-list-items__item s-about__block">
-    <h4 class="s-about__block-title">Skills</h4>
+                        </div> <!--end s-about__block -->
+                        
+                        <div class="grid-list-items__item s-about__block">
+                            <h4 class="s-about__block-title">Skills</h4>
 
-    <div class="skills-container"> <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <div class="skill-item">
-                <span>PHP</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="90"></div> </div>
-            </div>
-            <div class="skill-item">
-                <span>Java</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="75"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>C++</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="60"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>HTML & CSS</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="95"></div>
-                </div>
-            </div>
-        </div>
+                            <ul class="s-about__list">
+                                <li>
+                                    Programming Languages: PHP, Java, C++, HTML, CSS
+                                </li>
+                                <li>
+                                    Database Management: MySQL
+                                </li>
+                                <li>
+                                    Prototyping
+                                </li>
+                                <li>
+                                    Tools & Technologies: Notepad++, Visual Studio Code,  UI/UX Design using Canva
+                                </li>
+                                <li>
+                                    Technical Writing: Research papers, technical reports, proposals, and journals
+                                </li>
+                                <li>
+                                    Visual Design
+                                </li>
+                            </ul>
+                        </div> <!--end s-about__block -->
 
-        <div class="skill-category">
-            <h3>Database Management</h3>
-            <div class="skill-item">
-                <span>MySQL</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="85"></div>
-                </div>
-            </div>
-        </div>
+                    </div> <!-- grid-list-items -->
 
-        <div class="skill-category">
-            <h3>Tools & Technologies</h3>
-            <div class="skill-item">
-                <span>Notepad++</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="80"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>VS Code</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="90"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>Canva (UI/UX)</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="70"></div>
-                </div>
-            </div>
-        </div>
+                </div> <!--end column -->
+            </div> <!--end s-about__content -->
+            
+        </section> <!-- end s-about -->   
 
-        <div class="skill-category">
-            <h3>Other Skills</h3>
-            <div class="skill-item">
-                <span>Prototyping</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="75"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>Technical Writing</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="85"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span>Visual Design</span>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" data-level="70"></div>
-                </div>
-            </div>
-        </div>
-    </div> </div> 
-                    </div> </div> </div> </section> <section id="works" class="s-works target-section">
+
+
+        <!-- # works
+        ================================================== -->
+        <section id="works" class="s-works target-section">
 
             <div class="row">
                 <div class="column xl-12">
                     <div class="section-header" data-num="02">
                         <h2 class="text-display-title">Selected Works.</h2>
-                    </div> </div>
+                    </div> <!-- end section-header -->
+                </div>
             </div>
 
             <div class="row folio-entries">
@@ -286,34 +263,38 @@ Makati City 1200, Philippines
 
                 <section class="projects-section">
                     <div class="project-container">
-                        <div class="project-grid">
-                        <div class="project-card" data-project-id="attendanceSystem">
+                        <!-- Automated Event Attendance System -->
+                        <div class="project-card">
                             <img src="images/barcode.gif" alt="Automated Event Attendance">
-                            <h3>Automated Event Attendance System</h3>
-                    <p class="project-tags">PHP, MySQL, JavaScript, HTML, CSS</p>
-                        <button class="view-details-btn">View Details</button>
-                            </div>
-
-                            </div>
-            
-                             <div class="project-tags">
-                                <span>#PHP</span>
-                                <span>#MySQL</span>
-                                <span>#JavaScript</span>
-                                <span>#HTML</span>
-                                <span>#CSS</span>
+                            <div class="project-info">
+                                <h3>Automated Event Attendance System</h3>
+                                <p>This project automates event attendance using barcode scanning for real-time check-ins. Built with PHP, MySQL, JavaScript, HTML, and CSS, it streamlines the attendance process and generates reports instantly.</p>
+                                <a href="https://github.com/your-username/automated-attendance" class="visit-btn">View on GitHub</a>
+                                <p class="tags">#PHP #MySQL #JavaScript #HTML #CSS</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-            </div> </section> <footer id="footer" class="s-footer target-section">
+            </div> <!-- folio entries -->
+
+
+        </section> <!-- end s-works --> 
+
+
+       
+
+
+        <!-- # footer 
+        ================================================== -->
+        <footer id="footer" class="s-footer target-section">
 
             <div class="row">
-                <div class="column xl-12">
+                <div class="column lg-12">
                     <div class="section-header light-on-dark" data-num="03">
                         <h2 class="text-display-title">Get In Touch.</h2>
-                    </div> </div>
+                    </div> <!-- end section-header -->
+                </div>
             </div>
 
             <div class="row s-footer__content">
@@ -323,25 +304,33 @@ Makati City 1200, Philippines
                         Thanks for checking out my portfolio! Whether you have a question, a project idea, or an opportunity you think I’d be a great fit for—I’d love to hear from you.
                         Feel free to reach out and I’ll get back to you as soon as I can.
                     </p>               
-                </div> <div class="column xl-6 md-12 s-footer__block s-footer__site-links">
+                </div> <!-- end section-footer__about -->
+
+                <div class="column xl-6 md-12 s-footer__block s-footer__site-links">
                     <div class="row">
                         <div class="column xl-4 lg-5 md-6 tab-12">
                             <h5>Follow Me</h5>
                             <ul class="link-list">
-                                <li><a target="_blank" href="https://www.instagram.com/gam_8boy">Instagram</a></li>
-                                <li><a target="_blank" href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/">LinkedIn</a></li>
+                                <li><a href="#0">Facebook</a></li>
+                                <li><a href="http://www.instagram.com/gam_8boy>Instagram</a></li>
+                                <li><a href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/">LinkedIn</a></li>
                             </ul>
                         </div>
                         <div class="column xl-6 md-6 tab-12">
                             <h5>Contact Me</h5>
                             <ul class="link-list">
-                                <li><a href="mailto:macaranasgabriel.dev@gmail.com">macaranasgabriel.dev@gmail.com</a></li>
+                                <li><<a href="mailto:macaranasgabriel.dev@gmail.com?subject=Inquiry from Portfolio&body=Hello Gabriel, I saw your portfolio and wanted to reach out.">macaranasgabriel.dev@gmail.com</a>></li>
                                 <li><a href="mailto:#0">Location: Pasig City, Metro Manila</a></li>
-                                <li><a href="tel:+639942523611">+639279469394</a></li>
+                                <li><a href="tel:+639279469394">+639279469394</a></li>
                             </ul> 
                         </div>
                     </div>                    
-                </div> </div>             <div class="row s-footer__buttons">
+                </div> <!-- end section-footer__site-links -->
+
+            </div> <!-- end section-footer__content -->
+
+
+            <div class="row s-footer__buttons">
                
                 <div class="column xl-6 tab-12">
                     <a href="mailto:#0" class="btn btn--primary btn--large u-fullwidth">Message Me</a>
@@ -358,7 +347,7 @@ Makati City 1200, Philippines
                 <div class="column xl-6 lg-12">
                     <ul class="s-footer__social social-list">
                         <li>
-                            <a href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/">
+                            <a href="https://www.linkedin.com/in/gabriel-macaranas-7912a8323/" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                                     <path d="M20.447 20.452h-3.754v-5.564c0-1.327-.025-3.036-1.852-3.036-1.853 0-2.136 1.445-2.136 2.938v5.662H8.951V9h3.6v1.561h.051c.502-.953 1.729-1.955 3.561-1.955 3.809 0 4.508 2.507 4.508 5.767v6.079zM5.337 7.433a2.176 2.176 0 0 1-2.168-2.184 2.176 2.176 0 0 1 2.168-2.184c1.2 0 2.168.982 2.168 2.184a2.177 2.177 0 0 1-2.168 2.184zM7.215 20.452H3.455V9h3.76v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.733v20.534C0 23.226.792 24 1.771 24h20.453C23.2 24 24 23.226 24 22.267V1.733C24 .774 23.2 0 22.225 0z" />
                                 </svg>
@@ -367,9 +356,16 @@ Makati City 1200, Philippines
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://www.instagram.com/gam_8boy">Instagram</a></li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
+                            <a href="https://www.instagram.com/gam_8boy" target="_blank">
+                                <svg xmlns="http://www.instagram.com/gam_8boy" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg>
                                 <span class="u-screen-reader-text">Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/+639279469394" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
+                                </svg>
+                                <span class="u-screen-reader-text">WhatsApp</span>
                             </a>
                         </li>
                     </ul> 
