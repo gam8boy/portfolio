@@ -7,33 +7,37 @@
 
     'use strict';
 
-    /* preloader
-     * -------------------------------------------------- */
+
+   /* preloader
+    * -------------------------------------------------- */
     const ssPreloader = function() {
+
         const siteBody = document.querySelector('body');
         const preloader = document.querySelector('#preloader');
         if (!preloader) return;
 
         html.classList.add('ss-preload');
-
+        
         window.addEventListener('load', function() {
             html.classList.remove('ss-preload');
             html.classList.add('ss-loaded');
-
+            
             preloader.addEventListener('transitionend', function afterTransition(e) {
-                if (e.target.matches('#preloader')) {
+                if (e.target.matches('#preloader'))  {
                     siteBody.classList.add('ss-show');
                     e.target.style.display = 'none';
                     preloader.removeEventListener(e.type, afterTransition);
                 }
             });
         });
+
     }; // end ssPreloader
 
 
-    /* move header
-     * -------------------------------------------------- */
+   /* move header
+    * -------------------------------------------------- */
     const ssMoveHeader = function () {
+
         const hdr = document.querySelector('.s-header');
         const hero = document.querySelector('#intro');
         let triggerHeight;
@@ -45,6 +49,7 @@
         }, 300);
 
         window.addEventListener('scroll', function () {
+
             let loc = window.scrollY;
 
             if (loc > triggerHeight) {
@@ -64,13 +69,16 @@
             } else {
                 hdr.classList.remove('scrolling');
             }
+
         });
+
     }; // end ssMoveHeader
 
 
-    /* mobile menu
-     * ---------------------------------------------------- */
+   /* mobile menu
+    * ---------------------------------------------------- */ 
     const ssMobileMenu = function() {
+
         const toggleButton = document.querySelector('.s-header__menu-toggle');
         const mainNavWrap = document.querySelector('.s-header__nav');
         const siteBody = document.querySelector('body');
@@ -84,7 +92,9 @@
         });
 
         mainNavWrap.querySelectorAll('.s-header__nav a').forEach(function(link) {
+
             link.addEventListener("click", function(event) {
+
                 // at 900px and below
                 if (window.matchMedia('(max-width: 900px)').matches) {
                     toggleButton.classList.toggle('is-clicked');
@@ -94,18 +104,21 @@
         });
 
         window.addEventListener('resize', function() {
+
             // above 900px
             if (window.matchMedia('(min-width: 901px)').matches) {
                 if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
                 if (toggleButton.classList.contains('is-clicked')) toggleButton.classList.remove('is-clicked');
             }
         });
+
     }; // end ssMobileMenu
 
 
-    /* highlight active menu link on pagescroll
-     * ------------------------------------------------------ */
+   /* highlight active menu link on pagescroll
+    * ------------------------------------------------------ */
     const ssScrollSpy = function() {
+
         const sections = document.querySelectorAll('.target-section');
         if (!sections) return;
 
@@ -113,22 +126,23 @@
         window.addEventListener('scroll', navHighlight);
 
         function navHighlight() {
+        
             // Get current scroll position
             let scrollY = window.pageYOffset;
-
-            // Loop through sections to get height(including padding and border),
+        
+            // Loop through sections to get height(including padding and border), 
             // top and ID values for each
             sections.forEach(function(current) {
                 const sectionHeight = current.offsetHeight;
                 const sectionTop = current.offsetTop - 50;
                 const sectionId = current.getAttribute('id');
-
-                /* If our current scroll position enters the space where current section
-                 * on screen is, add .current class to parent element(li) of the thecorresponding
-                 * navigation link, else remove it. To know which link is active, we use
-                 * sectionId variable we are getting while looping through sections as
-                 * an selector
-                 */
+            
+               /* If our current scroll position enters the space where current section 
+                * on screen is, add .current class to parent element(li) of the thecorresponding 
+                * navigation link, else remove it. To know which link is active, we use 
+                * sectionId variable we are getting while looping through sections as 
+                * an selector
+                */
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     document.querySelector('.s-header__nav a[href*=' + sectionId + ']').parentNode.classList.add('current');
                 } else {
@@ -136,12 +150,14 @@
                 }
             });
         }
+
     }; // end ssScrollSpy
 
 
-    /* glightbox
-     * ------------------------------------------------------ */
+   /* glightbox
+    * ------------------------------------------------------ */ 
     const ssGLightbox = function() {
+
         const lightbox = GLightbox({
             selector: '.glightbox',
             zoomable: false,
@@ -153,14 +169,17 @@
                 prev: '<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fill-rule="nonzero"/></svg>',
                 next: '<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>'
             }
-        });
+        });        
+
     } // end ssGLightbox
 
 
-    /* swiper
-     * ------------------------------------------------------ */
+   /* swiper
+    * ------------------------------------------------------ */ 
     const ssSwiper = function() {
+
         const testimonialsSwiper = new Swiper('.s-testimonials__slider', {
+
             slidesPerView: 1,
             pagination: {
                 el: '.swiper-pagination',
@@ -184,15 +203,18 @@
                 }
             }
         });
+
     }; // end ssSwiper
 
 
-    /* alert boxes
-     * ------------------------------------------------------ */
+   /* alert boxes
+    * ------------------------------------------------------ */
     const ssAlertBoxes = function() {
-        const boxes = document.querySelectorAll('.alert-box');
 
+        const boxes = document.querySelectorAll('.alert-box');
+  
         boxes.forEach(function(box){
+
             box.addEventListener('click', function(e) {
                 if (e.target.matches('.alert-box__close')) {
                     e.stopPropagation();
@@ -204,12 +226,14 @@
                 }
             });
         })
+
     }; // end ssAlertBoxes
 
 
     /* Back to Top
-     * ------------------------------------------------------ */
+    * ------------------------------------------------------ */
     const ssBackToTop = function() {
+
         const pxShow = 900;
         const goTopButton = document.querySelector(".ss-go-top");
 
@@ -225,12 +249,14 @@
                 goTopButton.classList.remove("link-is-visible")
             }
         });
+
     }; // end ssBackToTop
 
 
-    /* smoothscroll
-     * ------------------------------------------------------ */
+   /* smoothscroll
+    * ------------------------------------------------------ */
     const ssMoveTo = function() {
+
         const easeFunctions = {
             easeInQuad: function (t, b, c, d) {
                 t /= d;
@@ -255,7 +281,7 @@
         }
 
         const triggers = document.querySelectorAll('.smoothscroll');
-
+        
         const moveTo = new MoveTo({
             tolerance: 0,
             duration: 1200,
@@ -266,12 +292,14 @@
         triggers.forEach(function(trigger) {
             moveTo.registerTrigger(trigger);
         });
+
     }; // end ssMoveTo
 
 
-    /* Initialize
-     * ------------------------------------------------------ */
+   /* Initialize
+    * ------------------------------------------------------ */
     (function ssInit() {
+
         ssPreloader();
         ssMoveHeader();
         ssMobileMenu();
@@ -281,154 +309,6 @@
         ssAlertBoxes();
         ssMoveTo();
 
-        // Call your custom functions here after the main template's initialization
-        // Or, better, put them inside the DOMContentLoaded listener below
     })();
 
-
 })(document.documentElement);
-
-
-// --- ALL YOUR CUSTOM LOGIC GOES HERE IN ONE DOMContentLoaded LISTENER ---
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Project Modal Logic ---
-    const projectModal = document.getElementById('projectModal');
-    const closeButton = document.querySelector('.close-button');
-    const viewDetailsButtons = document.querySelectorAll('.view-details-btn');
-
-    const modalProjectTitle = document.getElementById('modalProjectTitle');
-    const modalProjectImage = document.getElementById('modalProjectImage');
-    const modalProjectDescription = document.getElementById('modalProjectDescription');
-    const modalProjectTech = document.getElementById('modalProjectTech');
-    const modalLiveDemoLink = document.getElementById('modalLiveDemoLink');
-    const modalGitHubLink = document.getElementById('modalGitHubLink');
-
-    // ** IMPORTANT: Define your project data here **
-    // This object holds the details for each project.
-    // The keys (e.g., 'attendanceSystem') must match the 'data-project-id' in your HTML.
-    const projectData = {
-        attendanceSystem: {
-            title: "Automated Event Attendance System",
-            image: "images/barcode.gif", // Use your actual image path relative to index.html
-            description: "Developed a robust attendance system using barcode technology to streamline event check-ins. Features include real-time data tracking, reporting, and user management. Built as a capstone project.",
-            tech: "Technologies: PHP, MySQL, JavaScript, HTML, CSS",
-            liveDemo: "https://www.loom.com/share/66aa2e5525324081b1a111a4940757d0", // Your "Watch Demo" link
-            githubRepo: "https://drive.google.com/file/d/10V-Aps-l1y-nIxe5YbtEdlPWilCimQ-6/view?usp=drive_link" // Your "Read more" link
-        },
-        // Add more projects here following the same structure:
-        // yourSecondProject: {
-        //     title: "Your Second Project Title",
-        //     image: "images/your-second-project.jpg",
-        //     description: "A detailed description of your second project...",
-        //     tech: "Technologies: Example Tech Stack",
-        //     liveDemo: "https://example.com/live-demo2",
-        //     githubRepo: "https://github.com/your-repo/project2"
-        // }
-    };
-
-    viewDetailsButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.closest('.project-card').dataset.projectId;
-            const project = projectData[projectId];
-
-            if (project) {
-                modalProjectTitle.textContent = project.title;
-                modalProjectImage.src = project.image;
-                modalProjectImage.alt = project.title;
-                modalProjectDescription.textContent = project.description;
-                modalProjectTech.textContent = project.tech;
-
-                // Show/hide live demo link
-                if (project.liveDemo) {
-                    modalLiveDemoLink.href = project.liveDemo;
-                    modalLiveDemoLink.style.display = 'inline-block';
-                } else {
-                    modalLiveDemoLink.style.display = 'none';
-                }
-
-                // Show/hide GitHub/Read More link
-                if (project.githubRepo) {
-                    modalGitHubLink.href = project.githubRepo;
-                    modalGitHubLink.style.display = 'inline-block';
-                } else {
-                    modalGitHubLink.style.display = 'none';
-                }
-
-                projectModal.style.display = 'flex'; // Show the modal
-            } else {
-                console.error(`Project data not found for ID: ${projectId}`);
-                // Optionally hide the modal or show an error message if project not found
-                projectModal.style.display = 'none';
-            }
-        });
-    });
-
-    closeButton.addEventListener('click', () => {
-        projectModal.style.display = 'none';
-    });
-
-    // Close the modal when clicking outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === projectModal) {
-            projectModal.style.display = 'none';
-        }
-    });
-
-    // --- Smooth Scrolling for Navigation (already present, but ensure it's in main.js) ---
-    document.querySelectorAll('a.smoothscroll[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // --- Skill Bar Animation ---
-    const skillBars = document.querySelectorAll('.skill-bar');
-
-    const observerOptions = {
-        root: null, // relative to the viewport
-        rootMargin: '0px',
-        threshold: 0.5 // Trigger when 50% of the item is visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const skillBar = entry.target;
-                const level = skillBar.dataset.level;
-                skillBar.style.width = level + '%';
-                observer.unobserve(skillBar); // Stop observing once animated
-            }
-        });
-    }, observerOptions);
-
-    skillBars.forEach(bar => {
-        observer.observe(bar);
-    });
-
-    // --- Scroll Animation for elements ---
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-    const animateObserverOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-
-    const animateObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, animateObserverOptions);
-
-    animatedElements.forEach(element => {
-        animateObserver.observe(element);
-    });
-
-}); // This closing bracket correctly closes the single DOMContentLoaded listener.
