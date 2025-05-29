@@ -3976,21 +3976,28 @@ td:last-child {
     align-items: center;
 }
 
+/* Styles for the Modal Overlay */
+.modal {
+    display: none; /* Hidden by default; JS will change to 'flex' */
+    position: fixed; /* Stays in place */
+    z-index: 10000; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+
 .modal-content {
     background-color: #fefefe;
-    margin: auto;
-    padding: 30px;
+    /* REMOVE THIS LINE: margin: 15% auto; */ /* Conflicts with flexbox centering */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Responsive width for mobile */
+    max-width: 800px; /* Max width for desktop */
     border-radius: 8px;
-    position: relative;
-    width: 90%;
-    max-width: 700px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    max-height: 90vh; /* Limit height for smaller screens */
-    overflow-y: auto;
-    text-align: center; /* Center modal content */
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s; /* Keep your existing animation */
+
 
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
@@ -4014,14 +4021,28 @@ td:last-child {
     color: #fff; /* Make it white so it's visible on dark overlay */
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: #fff; /* White on hover */
-    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque */
-    text-decoration: none;
+.close-button {
+    color: #FFFFFF; /* White color to stand out on dark overlay */
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute; /* Position relative to the .modal (which is fixed) */
+    top: 20px;       /* Distance from top of the screen */
+    right: 20px;     /* Distance from right of the screen */
     cursor: pointer;
+    z-index: 10002;  /* Higher than modal content to be clickable */
+    padding: 10px 15px; /* Increase tap area for easier clicking */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    border-radius: 5px; /* Slightly rounded corners */
+    line-height: 1; /* Helps vertical alignment of the 'X' */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
 }
 
+.close-button:hover,
+.close-button:focus {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background on hover/focus */
+    color: #fff; /* Keep color white */
+    text-decoration: none;
+}
 .modal-content h2 {
     margin-top: 10px;
     font-size: 2em;
@@ -4030,10 +4051,10 @@ td:last-child {
 }
 
 .modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    max-width: 100%; /* Ensures image doesn't overflow its container */
+    height: auto;    /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+    margin: 15px auto; /* Add some vertical spacing and center */
 }
 
 .modal-content p {
