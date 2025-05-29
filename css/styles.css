@@ -2615,7 +2615,12 @@ td:last-child {
     padding: 0 20px; /* No padding when hidden */
     text-align: left;
 }
-
+/* Max-height value should be large enough to contain all possible content */
+.experience-item.active .experience-details {
+    max-height: 2000px; /* <--- CHANGE THIS VALUE (e.g., from 500px to 2000px or more) */
+    padding: 20px; /* Padding when visible */
+}
+    
 .experience-details p {
     padding: 20px 0; /* Only apply vertical padding when visible */
     margin: 0;
