@@ -228,7 +228,34 @@
         })
 
     }; // end ssAlertBoxes
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (your existing main.js code before this point)
 
+    // Functionality for skill bars animation
+    const skillBars = document.querySelectorAll('.skill-bars li .progress'); // Target the .progress div
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                // Get data-percent from the parent <li> element
+                const level = skillBar.parentElement.dataset.percent;
+                skillBar.style.width = level + '%';
+                observer.unobserve(skillBar); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
+
+    skillBars.forEach(bar => {
+        observer.observe(bar);
+    });
+
+    
+});
 
     /* Back to Top
     * ------------------------------------------------------ */
