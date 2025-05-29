@@ -432,8 +432,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 }); // This closing bracket correctly closes the single DOMContentLoaded listener.
-} else {
-    console.error(`Project data not found for ID: ${projectId}`);
-    // Optionally hide the modal or show an error message if project not found
-    projectModal.style.display = 'none';
-}
