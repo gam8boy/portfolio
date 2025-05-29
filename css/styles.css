@@ -2637,10 +2637,66 @@ td:last-child {
     margin-bottom: 8px;
 }
 
-/* Max-height value should be large enough to contain all possible content */
-.experience-item.active .experience-details {
-    max-height: 500px; /* Adjust if your content is longer */
-    padding: 20px; /* Padding when visible */
+/* ===================================================================
+ * Mobile Specific Adjustments for Experience Section
+ * =================================================================== */
+@media (max-width: 768px) {
+    /* Adjust padding for header and details */
+    .experience-header {
+        padding: 12px 15px; /* Slightly reduce header padding */
+        flex-wrap: wrap; /* Allows items to wrap to the next line on small screens */
+        align-items: flex-start; /* Aligns wrapped items to the start */
+    }
+
+    .experience-item.active .experience-details {
+        padding: 15px; /* Slightly reduce padding when expanded */
+    }
+
+    /* Smaller font size for the experience header title */
+    .experience-header h3 {
+        font-size: 0.95em; /* Reduce main title font size */
+        white-space: normal; /* Ensure text wraps */
+        margin-right: 10px;
+    }
+
+    /* Smaller font size for the date */
+    .experience-date {
+        font-size: 0.7em; /* Reduce date font size */
+        flex-shrink: 0; /* Prevent date from shrinking too much */
+    }
+
+    /* Adjust font size for content within the expanded details */
+    .experience-details p,
+    .experience-details ul li {
+        font-size: 0.85em; /* Make the detailed text slightly smaller */
+        line-height: 1.4;
+    }
+
+    /* Make the arrow icon larger for better visibility and tap target */
+    .toggle-details-btn {
+        padding: 8px; /* Increase clickable area */
+        /* background-color: rgba(255, 255, 255, 0.1); */ /* Optional: Add a subtle background */
+        /* border-radius: 50%; */
+    }
+
+    .arrow-icon {
+        width: 24px; /* Ensure arrow icon size */
+        height: 24px;
+        fill: #6200ea; /* Confirm your accent color for the arrow */
+    }
+}
+
+/* Further adjustments for very small screens (e.g., portrait phone view) */
+@media (max-width: 480px) {
+    .experience-header h3 {
+        font-size: 0.85em; /* Even smaller for very small screens */
+    }
+    .experience-date {
+        font-size: 0.65em;
+        width: 100%; /* Force date to a new line below the title */
+        text-align: right;
+        margin-top: 5px;
+    }
 }
 /* --------------------------------------------------------------------
  * ## stats tabs
