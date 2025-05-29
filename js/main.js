@@ -7,11 +7,9 @@
 
     'use strict';
 
-
-   /* preloader
-    * -------------------------------------------------- */
+    /* preloader
+     * -------------------------------------------------- */
     const ssPreloader = function() {
-
         const siteBody = document.querySelector('body');
         const preloader = document.querySelector('#preloader');
         if (!preloader) return;
@@ -30,14 +28,12 @@
                 }
             });
         });
-
     }; // end ssPreloader
 
 
-   /* move header
-    * -------------------------------------------------- */
+    /* move header
+     * -------------------------------------------------- */
     const ssMoveHeader = function () {
-
         const hdr = document.querySelector('.s-header');
         const hero = document.querySelector('#intro');
         let triggerHeight;
@@ -49,7 +45,6 @@
         }, 300);
 
         window.addEventListener('scroll', function () {
-
             let loc = window.scrollY;
 
             if (loc > triggerHeight) {
@@ -69,16 +64,13 @@
             } else {
                 hdr.classList.remove('scrolling');
             }
-
         });
-
     }; // end ssMoveHeader
 
 
-   /* mobile menu
-    * ---------------------------------------------------- */ 
+    /* mobile menu
+     * ---------------------------------------------------- */ 
     const ssMobileMenu = function() {
-
         const toggleButton = document.querySelector('.s-header__menu-toggle');
         const mainNavWrap = document.querySelector('.s-header__nav');
         const siteBody = document.querySelector('body');
@@ -92,9 +84,7 @@
         });
 
         mainNavWrap.querySelectorAll('.s-header__nav a').forEach(function(link) {
-
             link.addEventListener("click", function(event) {
-
                 // at 900px and below
                 if (window.matchMedia('(max-width: 900px)').matches) {
                     toggleButton.classList.toggle('is-clicked');
@@ -104,21 +94,18 @@
         });
 
         window.addEventListener('resize', function() {
-
             // above 900px
             if (window.matchMedia('(min-width: 901px)').matches) {
                 if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
                 if (toggleButton.classList.contains('is-clicked')) toggleButton.classList.remove('is-clicked');
             }
         });
-
     }; // end ssMobileMenu
 
 
-   /* highlight active menu link on pagescroll
-    * ------------------------------------------------------ */
+    /* highlight active menu link on pagescroll
+     * ------------------------------------------------------ */
     const ssScrollSpy = function() {
-
         const sections = document.querySelectorAll('.target-section');
         if (!sections) return;
 
@@ -126,23 +113,22 @@
         window.addEventListener('scroll', navHighlight);
 
         function navHighlight() {
-        
             // Get current scroll position
             let scrollY = window.pageYOffset;
-        
+            
             // Loop through sections to get height(including padding and border), 
             // top and ID values for each
             sections.forEach(function(current) {
                 const sectionHeight = current.offsetHeight;
                 const sectionTop = current.offsetTop - 50;
                 const sectionId = current.getAttribute('id');
-            
-               /* If our current scroll position enters the space where current section 
-                * on screen is, add .current class to parent element(li) of the thecorresponding 
-                * navigation link, else remove it. To know which link is active, we use 
-                * sectionId variable we are getting while looping through sections as 
-                * an selector
-                */
+                
+                /* If our current scroll position enters the space where current section 
+                 * on screen is, add .current class to parent element(li) of the thecorresponding 
+                 * navigation link, else remove it. To know which link is active, we use 
+                 * sectionId variable we are getting while looping through sections as 
+                 * an selector
+                 */
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     document.querySelector('.s-header__nav a[href*=' + sectionId + ']').parentNode.classList.add('current');
                 } else {
@@ -150,14 +136,12 @@
                 }
             });
         }
-
     }; // end ssScrollSpy
 
 
-   /* glightbox
-    * ------------------------------------------------------ */ 
+    /* glightbox
+     * ------------------------------------------------------ */ 
     const ssGLightbox = function() {
-
         const lightbox = GLightbox({
             selector: '.glightbox',
             zoomable: false,
@@ -170,16 +154,13 @@
                 next: '<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>'
             }
         });        
-
     } // end ssGLightbox
 
 
-   /* swiper
-    * ------------------------------------------------------ */ 
+    /* swiper
+     * ------------------------------------------------------ */ 
     const ssSwiper = function() {
-
         const testimonialsSwiper = new Swiper('.s-testimonials__slider', {
-
             slidesPerView: 1,
             pagination: {
                 el: '.swiper-pagination',
@@ -203,18 +184,15 @@
                 }
             }
         });
-
     }; // end ssSwiper
 
 
-   /* alert boxes
-    * ------------------------------------------------------ */
+    /* alert boxes
+     * ------------------------------------------------------ */
     const ssAlertBoxes = function() {
-
         const boxes = document.querySelectorAll('.alert-box');
-  
+    
         boxes.forEach(function(box){
-
             box.addEventListener('click', function(e) {
                 if (e.target.matches('.alert-box__close')) {
                     e.stopPropagation();
@@ -226,41 +204,54 @@
                 }
             });
         })
-
     }; // end ssAlertBoxes
-document.addEventListener('DOMContentLoaded', function() {
-    // ... (your existing main.js code before this point)
 
-    // Functionality for skill bars animation
-    const skillBars = document.querySelectorAll('.skill-bars li .progress'); // Target the .progress div
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const skillBar = entry.target;
-                // Get data-percent from the parent <li> element
-                const level = skillBar.parentElement.dataset.percent;
-                skillBar.style.width = level + '%';
-                observer.unobserve(skillBar); // Stop observing once animated
-            }
+    // Add this code inside your existing DOMContentLoaded listener in main.js
+    document.addEventListener('DOMContentLoaded', function() { // This is where the event listener begins
+        // ... (your existing main.js code for skill bars animation)
+
+        // Functionality for skill bars animation
+        const skillBars = document.querySelectorAll('.skill-bars li .progress'); // Target the .progress div
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBar = entry.target;
+                    const level = skillBar.parentElement.dataset.percent;
+                    skillBar.style.width = level + '%';
+                    observer.unobserve(skillBar); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        skillBars.forEach(bar => {
+            observer.observe(bar);
         });
-    }, observerOptions);
 
-    skillBars.forEach(bar => {
-        observer.observe(bar);
-    });
+        // ==============================================================================
+        // START OF MOVED ACCORDION CODE
+        // ==============================================================================
+        const experienceHeaders = document.querySelectorAll('.experience-header');
 
-    
-});
+        experienceHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const experienceItem = this.closest('.experience-item');
+                const isActive = experienceItem.classList.toggle('active'); // Toggle 'active' class
+                this.querySelector('.toggle-details-btn').setAttribute('aria-expanded', isActive); // Update ARIA attribute
+            });
+        });
+        // ==============================================================================
+        // END OF MOVED ACCORDION CODE
+        // ==============================================================================
+    }); // This closing bracket correctly closes the single DOMContentLoaded listener.
 
     /* Back to Top
-    * ------------------------------------------------------ */
+     * ------------------------------------------------------ */
     const ssBackToTop = function() {
-
         const pxShow = 900;
         const goTopButton = document.querySelector(".ss-go-top");
 
@@ -276,24 +267,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 goTopButton.classList.remove("link-is-visible")
             }
         });
-
     }; // end ssBackToTop
 
-// Add this code inside your existing DOMContentLoaded listener in main.js
-// For expandable experience items (accordion)
-const experienceHeaders = document.querySelectorAll('.experience-header');
 
-experienceHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-        const experienceItem = this.closest('.experience-item');
-        const isActive = experienceItem.classList.toggle('active'); // Toggle 'active' class
-        this.querySelector('.toggle-details-btn').setAttribute('aria-expanded', isActive); // Update ARIA attribute
-    });
-});
-   /* smoothscroll
-    * ------------------------------------------------------ */
+    /* smoothscroll
+     * ------------------------------------------------------ */
     const ssMoveTo = function() {
-
         const easeFunctions = {
             easeInQuad: function (t, b, c, d) {
                 t /= d;
@@ -329,14 +308,12 @@ experienceHeaders.forEach(header => {
         triggers.forEach(function(trigger) {
             moveTo.registerTrigger(trigger);
         });
-
     }; // end ssMoveTo
 
 
-   /* Initialize
-    * ------------------------------------------------------ */
+    /* Initialize
+     * ------------------------------------------------------ */
     (function ssInit() {
-
         ssPreloader();
         ssMoveHeader();
         ssMobileMenu();
