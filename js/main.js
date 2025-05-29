@@ -102,7 +102,37 @@
         });
     }; // end ssMobileMenu
 
+/* ===================================================================
+ * Scroll to Top
+ * =================================================================== */
+const ssGoTop = function() {
+    const pxToScroll = 800; // Amount of pixels scrolled before the button appears
+    const goTopButton = document.querySelector('.ss-go-top');
 
+    if (!goTopButton) return;
+
+    // Show/Hide button on scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > pxToScroll) {
+            goTopButton.classList.add('is-visible');
+        } else {
+            goTopButton.classList.remove('is-visible');
+        }
+    });
+
+    // Scroll to top on click
+    goTopButton.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scroll effect
+        });
+    });
+}; // end ssGoTop
+
+// Call the function when the DOM is loaded
+// (Ensure this call is within your overall DOMContentLoaded listener if you have one)
+document.addEventListener('DOMContentLoaded', ssGoTop);
     /* highlight active menu link on pagescroll
      * ------------------------------------------------------ */
     const ssScrollSpy = function() {
