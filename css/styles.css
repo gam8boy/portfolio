@@ -2549,22 +2549,7 @@ td:last-child {
     border-top-color: var(--color-text, var(--color-black));
     content         : "";
 }
-.skill-bars .skill-bar-item .skill-header {
-    font-size: 1.4rem; /* or 1.2rem, experiment to find what looks right */
-    /* ... other properties ... */
-}
-.skill-bars .skill-bar-item .skill-bar {
-    height: 1.2rem; /* or 1rem, adjust as desired */
-    /* ... other properties ... */
-}
-    .skill-bars .skill-bar-item {
-    margin-bottom: 1.5rem; /* Reduce spacing between skills */
-    /* ... other properties ... */
-}
-    .skill-bars .skill-bar-item .skill-header {
-    margin-bottom: 0.5rem; /* Reduce space above the bar */
-    /* ... other properties ... */
-}
+
 .skill-bars li .percent5 {
     width: 5%;
 }
@@ -3417,12 +3402,7 @@ td:last-child {
 .s-intro__content-pretitle {
     font-weight  : 600;
     margin-bottom: var(--vspace-0_125);
-    color        : 7B68EE);
-}
-        .s-intro__content-pretitle2 {
-    font-weight  : 600;
-    margin-bottom: var(--vspace-0_125);
-    color        : FFA500;
+    color        : var(--color-1);
 }
 
 .s-intro__content-title {
@@ -3880,232 +3860,7 @@ td:last-child {
         display: none;
     }
 }
-    .ss-go-top {
-    bottom: 6rem; /* Adjust to sit above the scroll-down button */
-    right: 2rem;
-    /* ... existing styles ... */
-}
 
-.ss-go-down {
-    position: fixed;
-    bottom: 2rem; /* Keep it at the bottom */
-    right: 2rem;
-    z-index: 600;
-    /* ... similar styling to ss-go-top, potentially with different background/icon */
-}
-/* --- Interactive Project Cards CSS --- */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-    gap: 30px;
-    padding: 20px;
-    justify-content: center;
-    max-width: 1200px; /* Optional: limit grid width */
-    margin: 0 auto; /* Center the grid */
-}
-
-.project-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer; /* Indicate it's clickable */
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
-}
-
-.project-card h3 {
-    margin: 15px 10px 5px;
-    color: #333;
-    font-size: 1.3em;
-}
-
-.project-card .project-tags {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 15px;
-    padding: 0 10px;
-}
-
-.project-card .view-details-btn {
-    background-color: #007bff; /* Use your portfolio's primary blue */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    margin-top: auto;
-}
-
-.project-card .view-details-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000; /* High z-index to appear on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Styles for the Modal Overlay */
-.modal {
-    display: none; /* Hidden by default; JS will change to 'flex' */
-    position: fixed; /* Stays in place */
-    z-index: 10000; /* Sit on top of everything */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
-
-.modal-content {
-    background-color: #fefefe;
-    /* REMOVE THIS LINE: margin: 15% auto; */ /* Conflicts with flexbox centering */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%; /* Responsive width for mobile */
-    max-width: 800px; /* Max width for desktop */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.5s; /* Keep your existing animation */
-
-
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-
-.close-button {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute; /* Now absolute relative to #projectModal */
-    top: 20px; /* Adjust as needed, relative to the top of the viewport */
-    right: 20px; /* Adjust as needed, relative to the right of the viewport */
-    cursor: pointer;
-    z-index: 10002; /* Give it an even higher z-index to be sure */
-    /* Add padding/background for easier tapping on mobile */
-    padding: 10px 15px; /* Added padding for touch target */
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    border-radius: 5px; /* Slightly rounded corners */
-    line-height: 1; /* Helps vertical alignment of the 'X' */
-    color: #fff; /* Make it white so it's visible on dark overlay */
-}
-
-.close-button {
-    color: #FFFFFF; /* White color to stand out on dark overlay */
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute; /* Position relative to the .modal (which is fixed) */
-    top: 20px;       /* Distance from top of the screen */
-    right: 20px;     /* Distance from right of the screen */
-    cursor: pointer;
-    z-index: 10002;  /* Higher than modal content to be clickable */
-    padding: 10px 15px; /* Increase tap area for easier clicking */
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-    border-radius: 5px; /* Slightly rounded corners */
-    line-height: 1; /* Helps vertical alignment of the 'X' */
-    transition: background-color 0.2s ease; /* Smooth hover effect */
-}
-
-.close-button:hover,
-.close-button:focus {
-    background-color: rgba(0, 0, 0, 0.6); /* Darker background on hover/focus */
-    color: #fff; /* Keep color white */
-    text-decoration: none;
-}
-.modal-content h2 {
-    margin-top: 10px;
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.modal-content img {
-    max-width: 100%; /* Ensures image doesn't overflow its container */
-    height: auto;    /* Maintains aspect ratio */
-    display: block; /* Removes extra space below image */
-    margin: 15px auto; /* Add some vertical spacing and center */
-}
-
-.modal-content p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-    color: #555;
-    text-align: left; /* Align description text left */
-}
-
-.modal-actions {
-    margin-top: 25px;
-    text-align: center;
-}
-
-.modal-btn {
-    background-color: #28a745; /* Green for demo */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-}
-
-.modal-btn:hover {
-    background-color: #218838;
-}
-
-.modal-btn[href*="github.com"] { /* For GitHub/Read More button */
-    background-color: #6c757d;
-}
-.modal-btn[href*="github.com"]:hover {
-    background-color: #5a6268;
-}
-
-/* Media Queries for Mobile Responsiveness (Modal) */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-    .modal-content h2 {
-        font-size: 1.5em;
-    }
-    .modal-btn {
-        display: block; /* Stack buttons on small screens */
-        margin: 10px auto;
-        width: calc(100% - 20px);
-    }
-}
 @media screen and (max-width: 400px) {
     .s-intro {
         --content-padding-top: max(10rem, 10vh);
@@ -4171,76 +3926,7 @@ td:last-child {
     line-height: 1.2;
     color      : var(--color-text-light) !important;
 }
-```css
-/* --- Animated Skill Bars CSS --- */
-.skills-container {
-    padding: 10px; /* Adjust padding as needed */
-}
 
-.skill-category {
-    margin-bottom: 30px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.skill-category h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    color: #333;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 1em;
-    color: #444;
-}
-
-.skill-item span {
-    flex: 0 0 120px; /* Fixed width for skill name */
-    font-weight: bold;
-    text-align: right;
-    padding-right: 15px;
-}
-
-.skill-bar-container {
-    flex-grow: 1;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    height: 12px; /* Slightly thinner bar */
-    overflow: hidden;
-}
-
-.skill-bar {
-    height: 100%;
-    background-color: #007bff; /* Matching your primary blue */
-    width: 0; /* Initial width for animation */
-    border-radius: 10px;
-    transition: width 1.5s ease-out; /* Animation effect */
-}
-
-/* Media Queries for Mobile Responsiveness (Skills) */
-@media (max-width: 600px) {
-    .skill-item {
-        flex-direction: column; /* Stack skill name and bar on small screens */
-        align-items: flex-start;
-    }
-    .skill-item span {
-        text-align: left;
-        width: auto;
-        padding-right: 0;
-        margin-bottom: 5px;
-    }
-    .skill-bar-container {
-        width: 100%;
-    }
-}
 /* ------------------------------------------------------------------- 
  * responsive:
  * about
@@ -4509,7 +4195,7 @@ td:last-child {
 }
 
 
-* ===================================================================
+/* ===================================================================
  * # FOOTER
  *
  *
@@ -4682,6 +4368,75 @@ td:last-child {
 .ss-go-top svg path {
     fill: white;
 }
+/*---------------------------------------------------------------*
+*## PROJECT SECTION
+ *----------------------------------------------------------------   /**/
+.projects-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #1a1c2e;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+    .project-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .project-card img {
+        width: 100%;
+        border-bottom: 3px solid #333;
+    }
+
+.project-info {
+    padding: 20px;
+}
+
+    .project-info h3 {
+        color: #e4e4e4;
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .project-info p {
+        color: #c0c0c0;
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+.visit-btn {
+    display: inline-block;
+    background-color: #6200ea;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+    .visit-btn:hover {
+        background-color: #4a00b4;
+    }
+
+.tags {
+    color: #999;
+    margin-top: 10px;
+    font-size: 0.85em;
+}
 
 /* ------------------------------------------------------------------- 
  * responsive:
@@ -4754,127 +4509,4 @@ td:last-child {
     .ss-go-top {
         right: -2rem;
     }
-}
-/*---------------------------------------------------------------*
-*## PROJECT SECTION
- *----------------------------------------------------------------   /**/
-.projects-section {
-    max-width: 1200px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.project-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    background-color: #1a1c2e;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-    .project-card:hover {
-        transform: translateY(-10px);
-    }
-
-    .project-card img {
-        width: 100%;
-        border-bottom: 3px solid #333;
-    }
-
-.project-info {
-    padding: 20px;
-}
-
-    .project-info h3 {
-        color: #e4e4e4;
-        margin-bottom: 10px;
-        font-size: 1.5em;
-    }
-
-    .project-info p {
-        color: #c0c0c0;
-        font-size: 1em;
-        line-height: 1.5;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
-.visit-btn {
-    display: inline-block;
-    background-color: #6200ea;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.3s ease;
-}
-
-    .visit-btn:hover {
-        background-color: #4a00b4;
-    }
-    //project css
-
-
-.project-header h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-subtitle {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.project-body p {
-  margin-bottom: 0.8rem;
-  line-height: 1.6;
-}
-
-.project-links {
-  margin-top: 1rem;
-}
-
-.project-links a {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-  transition: 0.2s ease;
-}
-
-.btn-github {
-  background: #7B68EE;
-}
-
-.btn-read {
-  background: #FFA500;
-}
-
-.project-links a:hover {
-  opacity: 0.85;
-}
-
-.project-tags {
-  margin-top: 1rem;
-}
-
-.project-tags span {
-  display: inline-block;
-  background: #eee;
-  color: #333;
-  padding: 5px 12px;
-  margin: 0 5px 5px 0;
-  border-radius: 20px;
-  font-size: 0.85rem;
 }
