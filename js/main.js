@@ -279,7 +279,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }; // end ssBackToTop
 
+// Add this code inside your existing DOMContentLoaded listener in main.js
+// For expandable experience items (accordion)
+const experienceHeaders = document.querySelectorAll('.experience-header');
 
+experienceHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+        const experienceItem = this.closest('.experience-item');
+        const isActive = experienceItem.classList.toggle('active'); // Toggle 'active' class
+        this.querySelector('.toggle-details-btn').setAttribute('aria-expanded', isActive); // Update ARIA attribute
+    });
+});
    /* smoothscroll
     * ------------------------------------------------------ */
     const ssMoveTo = function() {
