@@ -2545,7 +2545,98 @@ td:last-child {
 ... (all the way to) ...
 .skill-bars li .percent100 { width: 100%; }
 */
+/* Custom Styles for Experience Section Accordion */
+.experience-list {
+    margin-top: 30px;
+}
 
+.experience-item {
+    background-color: #222; /* Darker background for each item */
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden; /* Important for smooth max-height transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background-color: #333; /* Header background */
+    color: #eee;
+    position: relative; /* For icon positioning */
+}
+
+.experience-header h3 {
+    margin: 0;
+    font-size: 1.3em;
+    color: #fff; /* Ensure title is visible */
+    flex-grow: 1; /* Allows title to take available space */
+}
+
+.experience-date {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-left: 15px;
+    white-space: nowrap; /* Prevents date from wrapping */
+}
+
+.toggle-details-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex; /* To center SVG */
+    align-items: center;
+    color: inherit; /* Inherit color from parent */
+    margin-left: 10px; /* Space between date and icon */
+}
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    fill: #6200ea; /* Your accent color */
+    transition: transform 0.3s ease-out; /* Smooth rotation */
+}
+
+/* Rotate icon when the item is active (expanded) */
+.experience-item.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.experience-details {
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Smooth slide effect */
+    background-color: #2a2a2a; /* Details background */
+    color: #ccc;
+    padding: 0 20px; /* No padding when hidden */
+    text-align: left;
+}
+
+.experience-details p {
+    padding: 20px 0; /* Only apply vertical padding when visible */
+    margin: 0;
+    line-height: 1.6;
+}
+
+.experience-details ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+.experience-details ul li {
+    margin-bottom: 8px;
+}
+
+/* Max-height value should be large enough to contain all possible content */
+.experience-item.active .experience-details {
+    max-height: 500px; /* Adjust if your content is longer */
+    padding: 20px; /* Padding when visible */
+}
 /* --------------------------------------------------------------------
  * ## stats tabs
  * -------------------------------------------------------------------- */
