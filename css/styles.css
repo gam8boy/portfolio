@@ -4402,7 +4402,8 @@ td:last-child {
     bottom: 20px; /* A fallback */
     right: 20px; /* A fallback */
     /* ... other styles like background, color, border-radius, etc. ... */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+     transform: none; 
 }
 
 .ss-go-top span {
@@ -4441,6 +4442,15 @@ td:last-child {
 
 .ss-go-top svg path {
     fill: white;
+}
+.ss-go-top a svg {
+    fill: #FFFFFF; /* Set a clear, contrasting color like white */
+    width: 24px;    /* Ensure it's a good visible size */
+    height: 24px;   /* Ensure it's a good visible size */
+    
+    /* VERY IMPORTANT: Check for and remove/reset any conflicting transforms.
+       If you suspect it's being rotated, explicitly set no rotation. */
+    transform: rotate(0deg); 
 }
 /*---------------------------------------------------------------*
 *## PROJECT SECTION
