@@ -236,32 +236,31 @@ document.addEventListener('DOMContentLoaded', ssGoTop);
         })
     }; // end ssAlertBoxes
 
-    // Add this code inside your existing DOMContentLoaded listener in main.js
     document.addEventListener('DOMContentLoaded', function() { // This is where the event listener begins
         // ... (your existing main.js code for skill bars animation)
 
-        // Functionality for skill bars animation
-        const skillBars = document.querySelectorAll('.skill-bars li .progress'); // Target the .progress div
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        };
+       // --- Skill Logo Animation ---
+    // Define selectors for each category (adjust if you change HTML structure)
+    const skillCategories = document.querySelectorAll('.skill-category');
+
+    skillCategories.forEach((category, idx) => {
+        const skillItems = category.querySelectorAll('.skill-item');
+        // Use Intersection Observer to animate when in view
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const skillBar = entry.target;
-                    const level = skillBar.parentElement.dataset.percent;
-                    skillBar.style.width = level + '%';
-                    observer.unobserve(skillBar); // Stop observing once animated
+                    const item = entry.target;
+                    const percent = parseInt(item.dataset.percent, 10);
+                    if (percent >= 70) {
+                        item.classList.add('active');
+                    }
+                    observer.unobserve(item);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.2 });
 
-        skillBars.forEach(bar => {
-            observer.observe(bar);
-        });
-
+        skillItems.forEach(item => observer.observe(item));
+    });
         // ==============================================================================
         // START OF MOVED ACCORDION CODE
         // ==============================================================================
