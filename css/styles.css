@@ -2489,63 +2489,100 @@ td:last-child {
 }
 
 /* -------------------------------------------------------------------
- * ## skillbars
+ * ## skill section
  * ------------------------------------------------------------------- */
-.skill-bars {
-    list-style: none;
-    margin: var(--vspace-2) 0 var(--vspace-1);
+.skill-category {
+  margin-bottom: 2rem;
 }
 
-.skill-bars li {
-    height: 0.4rem;
-    background: var(--color-gray-5); /* Background of the track */
-    width: 100%;
-    margin-bottom: calc(var(--vspace-2) - 0.4rem);
-    padding: 0;
-    position: relative;
+.skill-category h5 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
 }
 
-.skill-bars li strong {
-    position: absolute;
-    left: 0;
-    top: calc(var(--vspace-1) * 1.25 * -1);
-    font-family: var(--font-1);
-    font-weight: 600;
-    color: var(--color-text);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: var(--text-xs);
-    line-height: var(--vspace-0_75);
+.skill-logos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
 }
 
-.skill-bars li .progress {
-    background: #6200ea; /* Use your accent color for the animated bar */
-    position: relative;
-    height: 100%;
-    width: 0; /* Start at 0 width for animation */
-    transition: width 1s ease-out; /* ADD THIS LINE for animation */
+.skill-item {
+  text-align: center;
+  width: 100px;
+  cursor: default;
 }
 
-/* Remove the following if you were using them for percentage text or arrow inside the bar,
-   as this new approach focuses on the bar animation itself.
-   If you still want the percentage text, you'd add it back via JS, not static CSS.
-*/
-.skill-bars li .progress span {
-    display: none; /* Hide if not dynamically adding percentage text */
+.skill-logo {
+  width: 80px;
+  height: 80px;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  display: block;
+  margin: 0 auto 0.5rem;
 }
 
-.skill-bars li .progress span::after {
-    display: none; /* Hide the arrow if not displaying percentage text */
+/* Programming Languages: pulse & glow */
+.skill-category:nth-of-type(1) .skill-logo {
+  /* default grayscale */
 }
 
-/* IMPORTANT: DELETE ALL OF THESE CLASSES FROM YOUR CSS: */
-/*
-.skill-bars li .percent5 { width: 5%; }
-.skill-bars li .percent10 { width: 10%; }
-... (all the way to) ...
-.skill-bars li .percent100 { width: 100%; }
-*/
+.skill-category:nth-of-type(1) .skill-item:hover .skill-logo,
+.skill-category:nth-of-type(1) .skill-item.active .skill-logo {
+  filter: grayscale(0%);
+  animation: pulseGlow 2s infinite;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px gold;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px gold;
+  }
+  50% {
+    box-shadow: 0 0 20px gold;
+  }
+}
+
+/* Databases & Tools: scale & shadow */
+.skill-category:nth-of-type(2) .skill-item:hover .skill-logo,
+.skill-category:nth-of-type(2) .skill-item.active .skill-logo {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Design & Prototyping: rotate & color fill */
+.skill-category:nth-of-type(3) .skill-item:hover .skill-logo,
+.skill-category:nth-of-type(3) .skill-item.active .skill-logo {
+  filter: grayscale(0%);
+  animation: slowRotate 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Other Skills: fade & highlight */
+.skill-category:nth-of-type(4) .skill-item:hover .skill-logo,
+.skill-category:nth-of-type(4) .skill-item.active .skill-logo {
+  filter: grayscale(0%);
+  box-shadow: 0 0 10px #4caf50;
+  transition: box-shadow 0.3s ease;
+}
+
+/* ==========================================  */
 /* Custom Styles for Experience Section Accordion */
+/* ==========================================  */
 .experience-list {
     margin-top: 30px;
 }
@@ -4111,70 +4148,7 @@ td:last-child {
     visibility      : visible;
 }
 
-/* ------------------------------------------------------------------- 
- * ## testimonials
- * ------------------------------------------------------------------- */
-.s-testimonials {
-    padding-top   : var(--vspace-4_5);
-    padding-bottom: var(--vspace-4);
-}
 
-.s-testimonials__header {
-    margin-top   : 0;
-    margin-bottom: var(--vspace-2);
-    text-align   : center;
-}
-
-.s-testimonials .swiper-container {
-    padding-bottom: var(--vspace-2);
-}
-
-.s-testimonials__slide {
-    position: relative;
-}
-
-.s-testimonials__author {
-    display      : inline-block;
-    min-height   : var(--vspace-2);
-    margin-bottom: var(--vspace-0_625);
-    padding-left : calc(2.25 * var(--space));
-    position     : relative;
-}
-
-.s-testimonials__avatar {
-    width        : var(--vspace-1_75);
-    height       : var(--vspace-1_75);
-    border-radius: 100%;
-    outline      : none;
-    position     : absolute;
-    top          : 0;
-    left         : 0;
-}
-
-.s-testimonials__cite {
-    display: block;
-}
-
-.s-testimonials__cite strong,
-.s-testimonials__cite span {
-    font-style: normal;
-    transition: all 0.3s ease-in-out;
-}
-
-.s-testimonials__cite strong {
-    font-size  : calc(var(--text-size) * 0.9);
-    font-weight: 500;
-    line-height: var(--vspace-0_75);
-    color      : var(--color-text-dark);
-}
-
-.s-testimonials__cite span {
-    display    : block;
-    font-size  : calc(var(--text-size) * 0.75);
-    font-weight: 400;
-    line-height: var(--vspace-0_5);
-    color      : var(--color-text-light);
-}
 
 /* ------------------------------------------------------------------- 
  * responsive:
